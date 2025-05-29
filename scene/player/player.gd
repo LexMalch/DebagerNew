@@ -17,19 +17,15 @@ func _physics_process(delta: float) -> void:
 	if velocity.x > 0:
 		$AnimatedSprite2D.flip_h = false	
 		$AnimatedSprite2D.play("run_right")
-		$RayCast2D.rotation = deg_to_rad(-90)
 
 	elif velocity.x < 0:
 		$AnimatedSprite2D.flip_h = true	
 		$AnimatedSprite2D.play("run_right")
-		$RayCast2D.rotation = deg_to_rad(90)
 		
 	elif velocity.y > 0:
 		$AnimatedSprite2D.play("run_down")
-		$RayCast2D.rotation = deg_to_rad(0)
 
 	elif velocity.y < 0:
-		$RayCast2D.rotation = deg_to_rad(180)
 
 		$AnimatedSprite2D.play("run_up")
 	else:
@@ -45,8 +41,8 @@ func _physics_process(delta: float) -> void:
 		$Camera2D.zoom = Vector2(1.75,1.75)
 	if Input.is_action_pressed("lmb"):
 		if dig_mode ==true and dig_av== true:	
-			if $RayCast2D.get_collider() and $RayCast2D.get_collider().get("name") == "Cave":
-				var colider = $RayCast2D.get_collider_rid()
+			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().get("name") == "Cave":
+				var colider = $Laser/Beam.get_collider_rid()
 				
 				cave.damage_tile(colider,Globals.digging_speed)
 				%digging.pitch_scale= randf_range(0.8,1.2)

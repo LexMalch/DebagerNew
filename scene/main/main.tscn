@@ -161,7 +161,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_efxa6"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 3
+physics_layer_0/collision_layer = 35
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -346,7 +346,7 @@ polygon = PackedVector2Array(-1, -10, -9, 5, 12, 7)
 autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="Wall/Spawner"]
-wait_time = 30.0
+wait_time = 2.914
 autostart = true
 
 [node name="Player" parent="." instance=ExtResource("4_b8g54")]

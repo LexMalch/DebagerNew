@@ -208,11 +208,6 @@ speed_scale = 1.29
 randomness = 0.61
 process_material = SubResource("ParticleProcessMaterial_5sn52")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, 2)
-scale = Vector2(2.65, 0.885)
-target_position = Vector2(0, 18.0791)
-
 [node name="PointLight2D" type="PointLight2D" parent="."]
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 0.168627)
