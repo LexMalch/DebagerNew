@@ -1,0 +1,183 @@
+[gd_scene load_steps=22 format=3 uid="uid://bcdvhgcf6nsvj"]
+
+[ext_resource type="Script" uid="uid://bhocjx5tn612o" path="res://scene/enemy/enemy_spider/enemy_spider.gd" id="1_4af2y"]
+[ext_resource type="Texture2D" uid="uid://d3bytl3aiwopp" path="res://scene/enemy/enemy_spider/enemy_body1.png" id="2_4af2y"]
+[ext_resource type="Texture2D" uid="uid://x1wj12r426o6" path="res://scene/enemy/enemy_spider/enemy_run1.png" id="3_w86bc"]
+[ext_resource type="Texture2D" uid="uid://bev6gch0x3akp" path="res://scene/enemy/enemy_spider/enemy_run2.png" id="4_l2wxs"]
+[ext_resource type="Texture2D" uid="uid://cdnkvj8qafe" path="res://scene/enemy/enemy_spider/enemy_run3.png" id="5_dw55x"]
+[ext_resource type="Texture2D" uid="uid://dc6xibaxamlxw" path="res://scene/enemy/enemy_spider/enemy_run4.png" id="6_y2tou"]
+[ext_resource type="Texture2D" uid="uid://cntmsq7dt17ap" path="res://scene/enemy/enemy_spider/enemy_run5.png" id="7_kv1aw"]
+[ext_resource type="Texture2D" uid="uid://bosbewllttnf7" path="res://scene/enemy/enemy_spider/enemy_run6.png" id="8_0sus5"]
+[ext_resource type="Texture2D" uid="uid://ehlotgisnnx6" path="res://scene/enemy/enemy_spider/enemy_run7.png" id="9_3g7yy"]
+[ext_resource type="Texture2D" uid="uid://hpssoth73l8p" path="res://scene/enemy/enemy_spider/enemy_run8.png" id="10_vmfj0"]
+[ext_resource type="Texture2D" uid="uid://bio2qej06ruby" path="res://scene/enemy/enemy_spider/enemy_byte.png" id="11_n75ol"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_84obg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w86bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l2wxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dw55x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_y2tou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kv1aw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0sus5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3g7yy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vmfj0")
+}],
+"loop": true,
+"name": &"run",
+"speed": 13.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4af2y"]
+radius = 14.0
+
+[sub_resource type="Animation" id="Animation_kv1aw"]
+
+[sub_resource type="Animation" id="Animation_y2tou"]
+resource_name = "bite"
+length = 0.3
+step = 0.05
+
+[sub_resource type="Animation" id="Animation_4af2y"]
+resource_name = "bite1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Head:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(12.5533, 1.36604, 3.13834),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.27, 1.27), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.5, 0.733333, 1),
+"transitions": PackedFloat32Array(0.999999, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.10472, 0.0, 0.10472, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0sus5"]
+_data = {
+&"RESET": SubResource("Animation_kv1aw"),
+&"bite": SubResource("Animation_y2tou"),
+&"bite1": SubResource("Animation_4af2y")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3g7yy"]
+size = Vector2(22, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w86bc"]
+radius = 611.433
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4af2y"]
+bg_color = Color(0.286275, 0.0509804, 0.407843, 0.235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w86bc"]
+bg_color = Color(0.39111, 0.664159, 0.572089, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.654056, 0.621038, 0.9866, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+anti_aliasing = false
+
+[node name="Enemy_spider" type="CharacterBody2D" groups=["enemys", "player"]]
+collision_layer = 16
+collision_mask = 18
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_4af2y")
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Spider_body" type="Sprite2D" parent="Sprites"]
+texture = ExtResource("2_4af2y")
+
+[node name="Spider_legs" type="AnimatedSprite2D" parent="Sprites"]
+sprite_frames = SubResource("SpriteFrames_84obg")
+animation = &"run"
+autoplay = "run"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4af2y")
+debug_color = Color(0, 0.6, 0.701961, 0.368627)
+
+[node name="Bite" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Spider_head")
+libraries = {
+&"": SubResource("AnimationLibrary_0sus5")
+}
+playback_default_blend_time = 0.1
+speed_scale = 4.0
+
+[node name="Spider_head" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spider_head"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_3g7yy")
+
+[node name="Head" type="Sprite2D" parent="Spider_head"]
+texture = ExtResource("11_n75ol")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_max_distance = 200.0
+simplify_path = true
+debug_path_custom_color = Color(1, 0.34902, 0, 1)
+
+[node name="Detection_area" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection_area"]
+shape = SubResource("CircleShape2D_w86bc")
+debug_color = Color(0, 0.6, 0.701961, 0.0470588)
+
+[node name="Attack_Timer" type="Timer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -13.0
+offset_top = -20.0
+offset_right = 14.0
+offset_bottom = -15.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4af2y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_w86bc")
+value = 29.26
+show_percentage = false
+
+[connection signal="body_entered" from="Spider_head" to="." method="_on_spider_head_body_entered"]
+[connection signal="body_exited" from="Spider_head" to="." method="_on_spider_head_body_exited"]
+[connection signal="body_entered" from="Detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="Detection_area" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="Attack_Timer" to="." method="_on_attack_timer_timeout"]
