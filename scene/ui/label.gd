@@ -1,17 +1,17 @@
 extends Label
 
-var full_text = "STAGE: 1"
+var full_text = "Stage: "+str(Globals.stage)
 var current_char = 0
 var typing_speed = 0.2  # Задержка между символами (в секундах)
 
 func _ready():
-	#%Wall.type.connect(_on_wall_type)
 	$TypeTimer.wait_time = typing_speed
 	$TypeTimer.timeout.connect(_on_type_timer_timeout)
-	start_typing()
+	
 
 func start_typing():
 	show()
+	full_text = "Stage: "+str(Globals.stage)
 	text = ""  # Очищаем текст
 	current_char = 0
 	$TypeTimer.start()
@@ -22,7 +22,7 @@ func _on_type_timer_timeout():
 		current_char += 1
 	else:
 		$TypeTimer.stop()  # Останавливаем, когда весь текст напечатан
-		await get_tree().create_timer(10).timeout
+		await get_tree().create_timer(5).timeout
 		hide()
 
 
