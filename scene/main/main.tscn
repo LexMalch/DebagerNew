@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://b6nyv11ur5obw"]
+[gd_scene load_steps=35 format=4 uid="uid://b6nyv11ur5obw"]
 
 [ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="1_si3g0"]
 [ext_resource type="Texture2D" uid="uid://b8g0t3osot2f" path="res://art/pics/tileset.png" id="2_siuy0"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bhxix5rdtca7p" path="res://scene/player/player.tscn" id="4_b8g54"]
 [ext_resource type="PackedScene" uid="uid://b4prfxi5j7xur" path="res://scene/generator/generator.tscn" id="4_qtsyf"]
 [ext_resource type="Texture2D" uid="uid://dqpcj1awtuhy4" path="res://art/pics/Sprite-0005.png" id="7_b8g54"]
+[ext_resource type="PackedScene" uid="uid://cen4qa4twrnf8" path="res://scene/ui/control.tscn" id="7_n5o2v"]
 [ext_resource type="Texture2D" uid="uid://cl4p6eyl5u1hh" path="res://art/pics/0.png" id="8_onf7c"]
 [ext_resource type="Shader" uid="uid://c4csolk8a1q6q" path="res://scene/main/tv.gdshader" id="10_pidc3"]
 [ext_resource type="Script" uid="uid://cpdj22x03gbfw" path="res://scene/main/spawner.gd" id="11_36wa8"]
@@ -358,6 +359,10 @@ position = Vector2(256, 80)
 unique_name_in_owner = true
 stream = ExtResource("4_36wa8")
 volume_db = -30.946
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="Control" parent="Player/CanvasLayer" instance=ExtResource("7_n5o2v")]
 
 [node name="Generator" parent="." instance=ExtResource("4_qtsyf")]
 unique_name_in_owner = true
