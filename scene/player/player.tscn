@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bhxix5rdtca7p"]
+[gd_scene load_steps=38 format=3 uid="uid://bhxix5rdtca7p"]
 
 [ext_resource type="Script" uid="uid://dyota6iuux5kf" path="res://scene/player/player.gd" id="1_jm5j8"]
 [ext_resource type="Texture2D" uid="uid://d2vyky0famktu" path="res://art/player_sorite/player_idle1.png" id="2_7hik5"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://ctaghglah3b3a" path="res://art/player_sorite/player_up7.png" id="24_vl8ci"]
 [ext_resource type="Texture2D" uid="uid://bxxn0uffljwxv" path="res://art/player_sorite/player_up8.png" id="25_ieltc"]
 [ext_resource type="PackedScene" uid="uid://ekti8rrglr4i" path="res://scene/laser/laser.tscn" id="26_04bvi"]
+[ext_resource type="PackedScene" uid="uid://cen4qa4twrnf8" path="res://scene/ui/control.tscn" id="27_nqjai"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fddr8"]
 animations = [{
@@ -189,6 +190,12 @@ shape = SubResource("RectangleShape2D_oybyf")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.75, 1.75)
+
+[node name="Control" parent="Camera2D" instance=ExtResource("27_nqjai")]
+offset_left = -183.0
+offset_top = -103.0
+offset_right = -183.0
+offset_bottom = -103.0
 
 [node name="suck" type="Area2D" parent="."]
 collision_layer = 0

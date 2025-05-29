@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://cen4qa4twrnf8"]
+
+[ext_resource type="Texture2D" uid="uid://mjs5a7ibwmeq" path="res://scene/laser/sprite/laser_touch1.png" id="1_lobh0"]
+[ext_resource type="Texture2D" uid="uid://oy85gqnrft7a" path="res://scene/laser/sprite/laser_use1.png" id="2_opgnf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5jq"]
+bg_color = Color(0.6, 0.6, 0.6, 0.164706)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+anti_aliasing = false
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8a5jq")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_lobh0")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "1"
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_opgnf")
+
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "2"
