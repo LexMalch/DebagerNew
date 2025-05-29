@@ -73,7 +73,6 @@ func check_building_status():
 			building_avalible = false
 func bild():
 	curr_build_scene = curr_build.instantiate()
-	print(%floor.get_cell_tile_data(%floor.local_to_map(%floor.get_local_mouse_position())).get_custom_data("blue"))
 	if %Player.build_mode == true and building_avalible == true and curr_build_scene.price <= Globals.dollors:
 		Globals.dollors -=curr_build_scene.price
 		curr_build_scene = curr_build.instantiate()
