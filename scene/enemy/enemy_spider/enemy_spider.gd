@@ -15,6 +15,7 @@ var targets = []
 var nearest_body  
 var direction = Vector2.DOWN
 var attack_target
+var kd= false
 
 	
 
@@ -118,3 +119,10 @@ func get_damage(damage_amount):
 
 	if health <= 0:
 		queue_free()
+
+
+func _on_kd_timer_timeout() -> void:
+	kd= false
+
+func  kd_start():
+	$Kd_Timer.start()

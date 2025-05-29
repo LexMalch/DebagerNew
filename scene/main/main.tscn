@@ -438,7 +438,7 @@ script = ExtResource("11_36wa8")
 autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="Wall/Spawner"]
-wait_time = 30.0
+wait_time = 10.0
 autostart = true
 
 [node name="Broken_feeler" type="Node2D" parent="Wall"]

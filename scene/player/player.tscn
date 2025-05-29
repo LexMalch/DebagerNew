@@ -221,5 +221,17 @@ scale = Vector2(0.5, 0.5)
 [node name="dig_timer" type="Timer" parent="."]
 
 [node name="Laser" parent="." instance=ExtResource("26_04bvi")]
+unique_name_in_owner = true
+
+[node name="Touch_animation" parent="Laser" index="0"]
+modulate = Color(0.931927, 0.188416, 0.197826, 1)
+
+[node name="Beam" parent="Laser" index="1"]
+collision_mask = 48
+
+[node name="Beam_line" parent="Laser" index="2"]
+default_color = Color(0.708473, 0.192193, 0.125949, 1)
 
 [connection signal="timeout" from="dig_timer" to="." method="_on_dig_timer_timeout"]
+
+[editable path="Laser"]

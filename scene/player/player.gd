@@ -49,11 +49,22 @@ func _physics_process(delta: float) -> void:
 				%digging.play()
 				dig_av= false
 				$dig_timer.start()
-			
+		if fight_mode== true:
+			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().is_in_group("enemys") and $Laser/Beam.get_collider().kd!= true:
+				
+				var colider = $Laser/Beam.get_collider()
+				colider.get_damage(Globals.digging_speed*2)
+				colider.kd = true
+				colider.kd_start()
 			else: return
 	if Input.is_action_just_pressed("dig_mode"):
 		if dig_mode ==false:
 			set_mode("1")
+		else:
+			set_mode("0")
+	if Input.is_action_just_pressed("fight_mode"):
+		if fight_mode ==false:
+			set_mode("2")
 		else:
 			set_mode("0")
 	if Input.is_action_pressed("rmb") and dig_mode ==true:
@@ -68,11 +79,15 @@ func movement_vector():
 	return Vector2(movement_x,movement_y) 
 func set_mode(mode):
 	if mode == "1":
+		%Laser/Beam_line.default_color = Color(0.16,0.89,1,1)
+		%Laser/Touch_animation.modulate = Color(1,1,1,1)
 		build_mode = false
 		fight_mode = false
 		dig_mode = true
 		$Tool.texture = dig_sprite
 	if mode == "2":
+		%Laser/Beam_line.default_color = Color(0.708,0.19,0.12,1)
+		%Laser/Touch_animation.modulate = Color(0.93,0.18,0.19,1)
 		build_mode = false
 		fight_mode = true
 		dig_mode = false

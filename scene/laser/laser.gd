@@ -19,7 +19,7 @@ func _physics_process(delta):
 	else:
 		$Beam_line.visible = false
 		$Touch_animation.visible = false
-	if Input.is_action_pressed("lmb"):
+	if Input.is_action_pressed("lmb") and (get_parent().fight_mode or get_parent().dig_mode):
 		shoot = true
 	else:
 		shoot = false

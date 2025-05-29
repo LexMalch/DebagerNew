@@ -176,8 +176,12 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_w86bc")
 value = 29.26
 show_percentage = false
 
+[node name="Kd_Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Spider_head" to="." method="_on_spider_head_body_entered"]
 [connection signal="body_exited" from="Spider_head" to="." method="_on_spider_head_body_exited"]
 [connection signal="body_entered" from="Detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="timeout" from="Attack_Timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="timeout" from="Kd_Timer" to="." method="_on_kd_timer_timeout"]

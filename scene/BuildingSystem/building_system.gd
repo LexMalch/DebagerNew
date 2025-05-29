@@ -16,14 +16,15 @@ func _ready() -> void:
 	curr_build = builds[pointer]
 	
 func _physics_process(delta: float) -> void:
-	#get_place()
+	
 	if %Player.build_mode == true:
 		get_pos()
 		$Sprite2D.position= curr_pos
 		$Polygon2D.position= curr_pos
 		check_building_status()
-
-
+	if %Player.build_mode == false:
+		$Sprite2D.visible = false
+		$Polygon2D.visible = false
 
 func _input(event):
 	if event.is_action_pressed("build_mode"):
