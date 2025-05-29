@@ -1,20 +1,28 @@
 extends TileMapLayer
 var damaged_tiles = {}
 var coins_scene = load("res://scene/coins/coins.tscn")
-signal popa
+
 
 func feeler_placed(coords):
 	var place = local_to_map(to_local(coords))
 	for i in range(1,5):
-		%floor.set_cell(place+Vector2i(0,-i), 0,Vector2i(1,0),0)
-		%floor.set_cell(place+Vector2i(0,+i), 0,Vector2i(1,0),0)
-		%floor.set_cell(place+Vector2i(i,0), 0,Vector2i(1,0),0)
-		%floor.set_cell(place+Vector2i(-i,0), 0,Vector2i(1,0),0)
+		if %floor.get_cell_atlas_coords(place+Vector2i(0,-i)) == Vector2i(1,1):
+			%floor.set_cell(place+Vector2i(0,-i), 0,Vector2i(1,0),0)
+		if %floor.get_cell_atlas_coords(place+Vector2i(0,+i)) == Vector2i(1,1):
+			%floor.set_cell(place+Vector2i(0,+i), 0,Vector2i(1,0),0)
+		if %floor.get_cell_atlas_coords(place+Vector2i(i,0)) == Vector2i(1,1):
+			%floor.set_cell(place+Vector2i(i,0), 0,Vector2i(1,0),0)
+		if %floor.get_cell_atlas_coords(place+Vector2i(-i,0)) == Vector2i(1,1):	
+			%floor.set_cell(place+Vector2i(-i,0), 0,Vector2i(1,0),0)
 		await get_tree().create_timer(0.1).timeout
-	%floor.set_cell(place+Vector2i(1,1), 0,Vector2i(1,0),0)
-	%floor.set_cell(place+Vector2i(-1,-1), 0,Vector2i(1,0),0)
-	%floor.set_cell(place+Vector2i(-1,1), 0,Vector2i(1,0),0)
-	%floor.set_cell(place+Vector2i(1,-1), 0,Vector2i(1,0),0)
+	if %floor.get_cell_atlas_coords(place+Vector2i(1,1)) == Vector2i(1,1):	
+		%floor.set_cell(place+Vector2i(1,1), 0,Vector2i(1,0),0)
+	if %floor.get_cell_atlas_coords(place+Vector2i(-1,-1)) == Vector2i(1,1):	
+		%floor.set_cell(place+Vector2i(-1,-1), 0,Vector2i(1,0),0)
+	if %floor.get_cell_atlas_coords(place+Vector2i(-1,1)) == Vector2i(1,1):	
+		%floor.set_cell(place+Vector2i(-1,1), 0,Vector2i(1,0),0)
+	if %floor.get_cell_atlas_coords(place+Vector2i(1,-1)) == Vector2i(1,1):	
+		%floor.set_cell(place+Vector2i(1,-1), 0,Vector2i(1,0),0)
 
 	
 

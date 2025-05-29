@@ -5,6 +5,7 @@ var ores:= 3
 var busy_plase = []
 var turret_damage= 1
 var digging_speed = 1
+var stage = 0
 
 func restart_game():
 	dollors = 0
@@ -13,3 +14,4 @@ func restart_game():
 	turret_damage= 1
 	busy_plase = []
 	digging_speed = 1
+	stage = 0
