@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b4prfxi5j7xur"]
+[gd_scene load_steps=25 format=3 uid="uid://b4prfxi5j7xur"]
 
 [ext_resource type="Texture2D" uid="uid://bfvs3us4xykxs" path="res://scene/generator/sprite/gen1.png" id="1_kdblc"]
 [ext_resource type="Script" uid="uid://c56ht8hmhwo0y" path="res://scene/generator/generator.gd" id="1_plp2v"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://dcdnjvnwsf8go" path="res://scene/generator/sprite/gen8.png" id="8_ln4xp"]
 [ext_resource type="Texture2D" uid="uid://bgchsg2fuilnl" path="res://scene/generator/sprite/gen9.png" id="9_la0fv"]
 [ext_resource type="Texture2D" uid="uid://b2xvhtkecsn7h" path="res://scene/generator/sprite/gen10.png" id="10_vppxe"]
+[ext_resource type="Script" uid="uid://bndcn7nq6x3q5" path="res://scene/generator/control.gd" id="12_ca0l4"]
+[ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="13_jccku"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jccku"]
 
@@ -68,6 +70,36 @@ radius = 17.7573
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plp2v"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_plp2v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5xoo"]
+shader = ExtResource("13_jccku")
+shader_parameter/shake_power = 0.002
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.001
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ca0l4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dufph"]
+shader = ExtResource("13_jccku")
+shader_parameter/shake_power = 0.002
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.001
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jccku"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ewm5t"]
+shader = ExtResource("13_jccku")
+shader_parameter/shake_power = 0.002
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.001
+
 [node name="Generator" type="StaticBody2D" groups=["ally"]]
 scale = Vector2(2, 2)
 collision_layer = 2
@@ -107,6 +139,86 @@ position = Vector2(0, 8)
 scale = Vector2(2.636, 2.636)
 shape = SubResource("RectangleShape2D_plp2v")
 
+[node name="Control" type="Control" parent="."]
+z_index = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -12.0
+offset_top = -60.0
+offset_right = 40.0
+offset_bottom = -11.0
+script = ExtResource("12_ca0l4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -15.5
+offset_right = 33.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_plp2v")
+
+[node name="Glich" type="ColorRect" parent="Control/HBoxContainer/PanelContainer"]
+z_index = 1000
+material = SubResource("ShaderMaterial_b5xoo")
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Control/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.36, 0.36, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "Laser
+Damage
+x2"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ca0l4")
+
+[node name="Glich" type="ColorRect" parent="Control/HBoxContainer/PanelContainer2"]
+z_index = 1000
+material = SubResource("ShaderMaterial_dufph")
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Control/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.360784, 0.360784, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "Turret
+Damage
+x2"
+
+[node name="PanelContainer3" type="PanelContainer" parent="Control/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jccku")
+
+[node name="Glich" type="ColorRect" parent="Control/HBoxContainer/PanelContainer3"]
+z_index = 1000
+material = SubResource("ShaderMaterial_ewm5t")
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="Control/HBoxContainer/PanelContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.360784, 0.360784, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "Amount
+Of 
+Ore
+x2
+"
+
 [connection signal="body_entered" from="generator_area" to="." method="_on_generator_area_body_entered"]
 [connection signal="body_exited" from="generator_area" to="." method="_on_generator_area_body_exited"]
 [connection signal="body_entered" from="Buildup_area" to="." method="_on_buildup_area_body_entered"]
+[connection signal="pressed" from="Control/HBoxContainer/PanelContainer/Button" to="Control" method="_on_button_pressed"]

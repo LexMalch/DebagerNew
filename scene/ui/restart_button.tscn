@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://llixd8875qlw"]
+
+[ext_resource type="Script" uid="uid://6lwr82mt2rqe" path="res://scene/ui/restart_button.gd" id="1_vht3l"]
+
+[node name="RestartButton" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -150.035
+offset_bottom = -135.1
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_vht3l")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Restart"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

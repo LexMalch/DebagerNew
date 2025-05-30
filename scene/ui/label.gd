@@ -6,7 +6,7 @@ var typing_speed = 0.2  # Задержка между символами (в с�
 
 func _ready():
 	$TypeTimer.wait_time = typing_speed
-	$TypeTimer.timeout.connect(_on_type_timer_timeout)
+	
 	
 
 func start_typing():

@@ -438,7 +438,7 @@ script = ExtResource("11_36wa8")
 autostart = true
 
 [node name="SpawnTimer" type="Timer" parent="Wall/Spawner"]
-wait_time = 10.0
+wait_time = 30.0
 autostart = true
 
 [node name="Broken_feeler" type="Node2D" parent="Wall"]
@@ -472,24 +472,6 @@ scale = Vector2(1, 0.998413)
 position = Vector2(-7, -9)
 target_position = Vector2(10, 10)
 collision_mask = 3
-
-[node name="Player" parent="." instance=ExtResource("4_b8g54")]
-unique_name_in_owner = true
-z_index = 10
-position = Vector2(256, 80)
-
-[node name="digging" type="AudioStreamPlayer2D" parent="Player"]
-unique_name_in_owner = true
-stream = ExtResource("4_36wa8")
-volume_db = -30.946
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
-
-[node name="Control" parent="Player/CanvasLayer" instance=ExtResource("7_n5o2v")]
-
-[node name="Generator" parent="." instance=ExtResource("4_qtsyf")]
-unique_name_in_owner = true
-position = Vector2(400, 65)
 
 [node name="BackGround" type="ParallaxBackground" parent="."]
 scroll_ignore_camera_zoom = true
@@ -542,19 +524,43 @@ scale = Vector2(9.69531, 15.1406)
 blend_mode = 1
 texture = SubResource("GradientTexture2D_pidc3")
 
+[node name="Generator" parent="." instance=ExtResource("4_qtsyf")]
+unique_name_in_owner = true
+position = Vector2(400, 65)
+
+[node name="Player" parent="." instance=ExtResource("4_b8g54")]
+unique_name_in_owner = true
+z_index = 6
+position = Vector2(256, 80)
+
+[node name="digging" type="AudioStreamPlayer2D" parent="Player"]
+unique_name_in_owner = true
+stream = ExtResource("4_36wa8")
+volume_db = -30.946
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player"]
+
+[node name="Control" parent="Player/CanvasLayer" instance=ExtResource("7_n5o2v")]
+mouse_filter = 2
+
 [node name="TvEffect" type="ColorRect" parent="."]
+z_index = 3
 material = SubResource("ShaderMaterial_n5o2v")
 offset_left = -680.0
 offset_top = -1348.0
 offset_right = 1465.0
 offset_bottom = 1560.0
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="BuildingSystem" parent="." instance=ExtResource("13_n5o2v")]
 unique_name_in_owner = true
 
-[node name="Turret" parent="." instance=ExtResource("11_snrr3")]
-position = Vector2(352, -33)
+[node name="Turret3" parent="." instance=ExtResource("11_snrr3")]
+position = Vector2(385, 0)
+
+[node name="Turret4" parent="." instance=ExtResource("11_snrr3")]
+position = Vector2(417, 0)
 
 [connection signal="type" from="Wall" to="Player/CanvasLayer/Control/HBoxContainer/MarginContainer2/Label" method="_on_wall_type"]
 [connection signal="timeout" from="Wall/Spawner/DirTimer" to="Wall/Spawner" method="_on_timer_timeout"]

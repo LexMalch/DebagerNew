@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cen4qa4twrnf8"]
+[gd_scene load_steps=9 format=3 uid="uid://cen4qa4twrnf8"]
 
 [ext_resource type="Texture2D" uid="uid://mjs5a7ibwmeq" path="res://scene/laser/sprite/laser_touch1.png" id="1_lobh0"]
 [ext_resource type="Script" uid="uid://c6ieu61ykp15k" path="res://scene/ui/control.gd" id="1_opgnf"]
 [ext_resource type="Texture2D" uid="uid://oy85gqnrft7a" path="res://scene/laser/sprite/laser_use1.png" id="2_opgnf"]
 [ext_resource type="Script" uid="uid://cokp72bhxahw6" path="res://scene/ui/label.gd" id="4_8a5jq"]
+[ext_resource type="PackedScene" uid="uid://llixd8875qlw" path="res://scene/ui/restart_button.tscn" id="5_daosa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5jq"]
 bg_color = Color(0.6, 0.6, 0.6, 0.164706)
@@ -17,6 +18,26 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xta4"]
+bg_color = Color(0.9, 0.261, 0.27165, 0.227451)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_daosa"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0.803922)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -24,13 +45,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_opgnf")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 174.0
+offset_bottom = 52.0
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -46,6 +67,15 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8a5jq")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/MarginContainer/PanelContainer"]
 layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/MarginContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(117.54, 24.85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_5xta4")
+value = 89.06
+show_percentage = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MarginContainer/PanelContainer/MarginContainer"]
 custom_minimum_size = Vector2(100, 25)
@@ -70,11 +100,9 @@ layout_mode = 2
 text = "2"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(61.465, 0)
 layout_mode = 2
-theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 
 [node name="Label" type="Label" parent="HBoxContainer/MarginContainer2"]
 visible = false
@@ -84,5 +112,17 @@ script = ExtResource("4_8a5jq")
 
 [node name="TypeTimer" type="Timer" parent="HBoxContainer/MarginContainer2/Label"]
 wait_time = 0.1
+
+[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_left = 555
+theme_override_constants/margin_bottom = 2
+
+[node name="RestartButton" parent="HBoxContainer/MarginContainer3" instance=ExtResource("5_daosa")]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_daosa")
 
 [connection signal="timeout" from="HBoxContainer/MarginContainer2/Label/TypeTimer" to="HBoxContainer/MarginContainer2/Label" method="_on_type_timer_timeout"]
