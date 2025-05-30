@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b4prfxi5j7xur"]
+[gd_scene load_steps=30 format=3 uid="uid://b4prfxi5j7xur"]
 
 [ext_resource type="Texture2D" uid="uid://bfvs3us4xykxs" path="res://scene/generator/sprite/gen1.png" id="1_kdblc"]
 [ext_resource type="Script" uid="uid://c56ht8hmhwo0y" path="res://scene/generator/generator.gd" id="1_plp2v"]
@@ -100,59 +100,9 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.001
 
-[sub_resource type="Animation" id="Animation_b5xoo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/HBoxContainer:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(92, 32)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/HBoxContainer:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-33, 9)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/HBoxContainer:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/HBoxContainer:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_jccku"]
 resource_name = "shop_in"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -160,7 +110,7 @@ tracks/0/path = NodePath("Control/HBoxContainer:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.466667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(92, 32), Vector2(92, 32)]
@@ -172,7 +122,7 @@ tracks/1/path = NodePath("Control/HBoxContainer:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.466667),
 "transitions": PackedFloat32Array(1.86607, 1),
 "update": 0,
 "values": [Vector2(-33, 48.085), Vector2(-33, 9)]
@@ -184,7 +134,7 @@ tracks/2/path = NodePath("Control/HBoxContainer:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.466667),
 "transitions": PackedFloat32Array(1.8025, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(1, 1)]
@@ -202,9 +152,59 @@ tracks/3/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_dufph"]
+resource_name = "card_pull_1"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HBoxContainer/LaserDamage:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ewm5t"]
+resource_name = "card_pull_2"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HBoxContainer/TurretDamage:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_ln4xp"]
+resource_name = "card_pull_3"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HBoxContainer/OreAmount:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dufph"]
 _data = {
-&"RESET": SubResource("Animation_b5xoo"),
+&"card_pull_1": SubResource("Animation_dufph"),
+&"card_pull_2": SubResource("Animation_ewm5t"),
+&"card_pull_3": SubResource("Animation_ln4xp"),
 &"shop_in": SubResource("Animation_jccku")
 }
 
@@ -266,11 +266,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -59.0
-offset_top = -15.5
+offset_top = 23.585
 offset_right = 33.0
-offset_bottom = 16.5
+offset_bottom = 55.585
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(45.11, 15.5)
 theme_override_constants/separation = 10
 alignment = 1
@@ -410,6 +411,7 @@ theme_override_font_sizes/font_size = 3
 text = "1"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_dufph")
 }
@@ -418,3 +420,5 @@ libraries = {
 [connection signal="body_exited" from="generator_area" to="." method="_on_generator_area_body_exited"]
 [connection signal="body_entered" from="Buildup_area" to="." method="_on_buildup_area_body_entered"]
 [connection signal="pressed" from="Control/HBoxContainer/LaserDamage/Button" to="Control" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/TurretDamage/Button2" to="Control" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/OreAmount/Button3" to="Control" method="_on_button_3_pressed"]
