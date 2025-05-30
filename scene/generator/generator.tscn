@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b4prfxi5j7xur"]
+[gd_scene load_steps=28 format=3 uid="uid://b4prfxi5j7xur"]
 
 [ext_resource type="Texture2D" uid="uid://bfvs3us4xykxs" path="res://scene/generator/sprite/gen1.png" id="1_kdblc"]
 [ext_resource type="Script" uid="uid://c56ht8hmhwo0y" path="res://scene/generator/generator.gd" id="1_plp2v"]
@@ -100,6 +100,90 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.001
 
+[sub_resource type="Animation" id="Animation_jccku"]
+resource_name = "shop_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HBoxContainer:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(92, 32), Vector2(92, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/HBoxContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.86607, 1),
+"update": 0,
+"values": [Vector2(-33, 48.085), Vector2(-33, 9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/HBoxContainer:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.8025, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b5xoo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HBoxContainer:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(92, 32)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/HBoxContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, 9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/HBoxContainer:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dufph"]
+_data = {
+&"RESET": SubResource("Animation_b5xoo"),
+&"shop_in": SubResource("Animation_jccku")
+}
+
 [node name="Generator" type="StaticBody2D" groups=["ally"]]
 scale = Vector2(2, 2)
 collision_layer = 2
@@ -162,55 +246,109 @@ offset_right = 33.0
 offset_bottom = 16.5
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(45.11, 15.5)
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="Control/HBoxContainer"]
+[node name="LaserDamage" type="PanelContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_plp2v")
 
-[node name="Glich" type="ColorRect" parent="Control/HBoxContainer/PanelContainer"]
+[node name="Glich" type="ColorRect" parent="Control/HBoxContainer/LaserDamage"]
 z_index = 1000
 material = SubResource("ShaderMaterial_b5xoo")
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Control/HBoxContainer/PanelContainer"]
+[node name="Button" type="Button" parent="Control/HBoxContainer/LaserDamage"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.36, 0.36, 1, 1)
 theme_override_font_sizes/font_size = 4
 text = "Laser
 Damage
 x2"
 
-[node name="PanelContainer2" type="PanelContainer" parent="Control/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer/LaserDamage/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/LaserDamage/Button/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Icon" type="Label" parent="Control/HBoxContainer/LaserDamage/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 3
+text = "$:"
+
+[node name="Price" type="Label" parent="Control/HBoxContainer/LaserDamage/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 3
+text = "1"
+
+[node name="TurretDamage" type="PanelContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_ca0l4")
 
-[node name="Glich" type="ColorRect" parent="Control/HBoxContainer/PanelContainer2"]
+[node name="Glich" type="ColorRect" parent="Control/HBoxContainer/TurretDamage"]
 z_index = 1000
 material = SubResource("ShaderMaterial_dufph")
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="Control/HBoxContainer/PanelContainer2"]
+[node name="Button2" type="Button" parent="Control/HBoxContainer/TurretDamage"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.360784, 0.360784, 1, 1)
 theme_override_font_sizes/font_size = 4
 text = "Turret
 Damage
 x2"
 
-[node name="PanelContainer3" type="PanelContainer" parent="Control/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer/TurretDamage/Button2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/TurretDamage/Button2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Icon" type="Label" parent="Control/HBoxContainer/TurretDamage/Button2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 3
+text = "$:"
+
+[node name="Price" type="Label" parent="Control/HBoxContainer/TurretDamage/Button2/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 3
+text = "1"
+
+[node name="OreAmount" type="PanelContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_jccku")
 
-[node name="Glich" type="ColorRect" parent="Control/HBoxContainer/PanelContainer3"]
+[node name="Glich" type="ColorRect" parent="Control/HBoxContainer/OreAmount"]
 z_index = 1000
 material = SubResource("ShaderMaterial_ewm5t")
 layout_mode = 2
 
-[node name="Button3" type="Button" parent="Control/HBoxContainer/PanelContainer3"]
+[node name="Button3" type="Button" parent="Control/HBoxContainer/OreAmount"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.360784, 0.360784, 1, 1)
 theme_override_font_sizes/font_size = 4
 text = "Amount
 Of 
@@ -218,7 +356,40 @@ Ore
 x2
 "
 
+[node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer/OreAmount/Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/HBoxContainer/OreAmount/Button3/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="Icon" type="Label" parent="Control/HBoxContainer/OreAmount/Button3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 3
+text = "$:"
+
+[node name="Price" type="Label" parent="Control/HBoxContainer/OreAmount/Button3/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 3
+text = "1"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dufph")
+}
+
 [connection signal="body_entered" from="generator_area" to="." method="_on_generator_area_body_entered"]
 [connection signal="body_exited" from="generator_area" to="." method="_on_generator_area_body_exited"]
 [connection signal="body_entered" from="Buildup_area" to="." method="_on_buildup_area_body_entered"]
-[connection signal="pressed" from="Control/HBoxContainer/PanelContainer/Button" to="Control" method="_on_button_pressed"]
+[connection signal="pressed" from="Control/HBoxContainer/LaserDamage/Button" to="Control" method="_on_button_pressed"]
