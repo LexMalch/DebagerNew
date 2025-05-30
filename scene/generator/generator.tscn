@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b4prfxi5j7xur"]
+[gd_scene load_steps=32 format=3 uid="uid://b4prfxi5j7xur"]
 
 [ext_resource type="Texture2D" uid="uid://bfvs3us4xykxs" path="res://scene/generator/sprite/gen1.png" id="1_kdblc"]
 [ext_resource type="Script" uid="uid://c56ht8hmhwo0y" path="res://scene/generator/generator.gd" id="1_plp2v"]
@@ -13,6 +13,41 @@
 [ext_resource type="Texture2D" uid="uid://b2xvhtkecsn7h" path="res://scene/generator/sprite/gen10.png" id="10_vppxe"]
 [ext_resource type="Script" uid="uid://bndcn7nq6x3q5" path="res://scene/generator/control.gd" id="12_ca0l4"]
 [ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="13_jccku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_plp2v"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5xoo"]
+shader = ExtResource("13_jccku")
+shader_parameter/shake_power = 0.002
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.001
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5xoo"]
+
+[sub_resource type="Theme" id="Theme_ewm5t"]
+Button/styles/focus = SubResource("StyleBoxEmpty_b5xoo")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ca0l4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dufph"]
+shader = ExtResource("13_jccku")
+shader_parameter/shake_power = 0.002
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.001
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jccku"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ewm5t"]
+shader = ExtResource("13_jccku")
+shader_parameter/shake_power = 0.002
+shader_parameter/shake_rate = 1.0
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.001
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jccku"]
 
@@ -70,35 +105,53 @@ radius = 17.7573
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plp2v"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_plp2v"]
+[sub_resource type="Animation" id="Animation_dufph"]
+resource_name = "card_pull_1"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HBoxContainer/LaserDamage:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5xoo"]
-shader = ExtResource("13_jccku")
-shader_parameter/shake_power = 0.002
-shader_parameter/shake_rate = 1.0
-shader_parameter/shake_speed = 5.0
-shader_parameter/shake_block_size = 30.5
-shader_parameter/shake_color_rate = 0.001
+[sub_resource type="Animation" id="Animation_ewm5t"]
+resource_name = "card_pull_2"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HBoxContainer/TurretDamage:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ca0l4"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dufph"]
-shader = ExtResource("13_jccku")
-shader_parameter/shake_power = 0.002
-shader_parameter/shake_rate = 1.0
-shader_parameter/shake_speed = 5.0
-shader_parameter/shake_block_size = 30.5
-shader_parameter/shake_color_rate = 0.001
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jccku"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ewm5t"]
-shader = ExtResource("13_jccku")
-shader_parameter/shake_power = 0.002
-shader_parameter/shake_rate = 1.0
-shader_parameter/shake_speed = 5.0
-shader_parameter/shake_block_size = 30.5
-shader_parameter/shake_color_rate = 0.001
+[sub_resource type="Animation" id="Animation_ln4xp"]
+resource_name = "card_pull_3"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/HBoxContainer/OreAmount:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_jccku"]
 resource_name = "shop_in"
@@ -152,54 +205,6 @@ tracks/3/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_dufph"]
-resource_name = "card_pull_1"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/HBoxContainer/LaserDamage:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_ewm5t"]
-resource_name = "card_pull_2"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/HBoxContainer/TurretDamage:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="Animation" id="Animation_ln4xp"]
-resource_name = "card_pull_3"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/HBoxContainer/OreAmount:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dufph"]
 _data = {
 &"card_pull_1": SubResource("Animation_dufph"),
@@ -213,39 +218,6 @@ scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_plp2v")
-
-[node name="Sprite" type="AnimatedSprite2D" parent="."]
-material = SubResource("ShaderMaterial_jccku")
-sprite_frames = SubResource("SpriteFrames_yybav")
-animation = &"buid_up"
-
-[node name="Build_collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_kdblc")
-
-[node name="generator_area" type="Area2D" parent="."]
-collision_mask = 9
-gravity_space_override = 1
-gravity_point = true
-gravity_point_center = Vector2(0, 0)
-gravity_direction = Vector2(0, 0)
-gravity = 50.0
-
-[node name="Area_collision" type="CollisionShape2D" parent="generator_area"]
-position = Vector2(0, 8)
-scale = Vector2(2.76, 2.76)
-shape = SubResource("CircleShape2D_opvtb")
-debug_color = Color(0.805252, 0.371615, 0.499287, 0.42)
-
-[node name="Buildup_area" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 8
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildup_area"]
-position = Vector2(0, 8)
-scale = Vector2(2.636, 2.636)
-shape = SubResource("RectangleShape2D_plp2v")
 
 [node name="Control" type="Control" parent="."]
 z_index = 1
@@ -266,12 +238,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -59.0
-offset_top = 23.585
+offset_top = -15.5
 offset_right = 33.0
-offset_bottom = 55.585
+offset_bottom = 16.5
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(45.11, 15.5)
 theme_override_constants/separation = 10
 alignment = 1
@@ -287,6 +258,7 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="Control/HBoxContainer/LaserDamage"]
 layout_mode = 2
+theme = SubResource("Theme_ewm5t")
 theme_override_font_sizes/font_size = 4
 text = "Laser
 Damage
@@ -331,6 +303,7 @@ layout_mode = 2
 
 [node name="Button2" type="Button" parent="Control/HBoxContainer/TurretDamage"]
 layout_mode = 2
+theme = SubResource("Theme_ewm5t")
 theme_override_font_sizes/font_size = 4
 text = "Turret
 Damage
@@ -375,6 +348,7 @@ layout_mode = 2
 
 [node name="Button3" type="Button" parent="Control/HBoxContainer/OreAmount"]
 layout_mode = 2
+theme = SubResource("Theme_ewm5t")
 theme_override_font_sizes/font_size = 4
 text = "Amount
 Of 
@@ -410,15 +384,48 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 3
 text = "1"
 
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_jccku")
+sprite_frames = SubResource("SpriteFrames_yybav")
+animation = &"buid_up"
+
+[node name="Build_collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_kdblc")
+
+[node name="generator_area" type="Area2D" parent="."]
+collision_mask = 9
+gravity_space_override = 1
+gravity_point = true
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 50.0
+
+[node name="Area_collision" type="CollisionShape2D" parent="generator_area"]
+position = Vector2(0, 8)
+scale = Vector2(2.76, 2.76)
+shape = SubResource("CircleShape2D_opvtb")
+debug_color = Color(0.805252, 0.371615, 0.499287, 0.42)
+
+[node name="Buildup_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildup_area"]
+position = Vector2(0, 8)
+scale = Vector2(2.636, 2.636)
+shape = SubResource("RectangleShape2D_plp2v")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_dufph")
 }
 
-[connection signal="body_entered" from="generator_area" to="." method="_on_generator_area_body_entered"]
-[connection signal="body_exited" from="generator_area" to="." method="_on_generator_area_body_exited"]
-[connection signal="body_entered" from="Buildup_area" to="." method="_on_buildup_area_body_entered"]
 [connection signal="pressed" from="Control/HBoxContainer/LaserDamage/Button" to="Control" method="_on_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/TurretDamage/Button2" to="Control" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/OreAmount/Button3" to="Control" method="_on_button_3_pressed"]
+[connection signal="body_entered" from="generator_area" to="." method="_on_generator_area_body_entered"]
+[connection signal="body_exited" from="generator_area" to="." method="_on_generator_area_body_exited"]
+[connection signal="body_entered" from="Buildup_area" to="." method="_on_buildup_area_body_entered"]
