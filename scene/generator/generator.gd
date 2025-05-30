@@ -5,6 +5,7 @@ var hp = 40
 func _on_generator_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player")or body.is_in_group("coins"):
 		$Sprite.play("buid_up")
+	if body.is_in_group("player"):
 		$AnimationPlayer.play("shop_in")
 		
 		
@@ -13,6 +14,7 @@ func _on_generator_area_body_entered(body: Node2D) -> void:
 func _on_generator_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player")  or body.is_in_group("coins"):
 		$Sprite.play_backwards("buid_up")
+	if body.is_in_group("player"):
 		$AnimationPlayer.play_backwards("shop_in")
 
 
