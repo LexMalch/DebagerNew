@@ -7,7 +7,7 @@ var	fight_mode = false
 var	dig_mode = false 
 var dig_av= true
 var build_sprite =  preload("res://art/pics/otv.png")
-#var fight_sprite =  preload()
+var fight_sprite =  preload("res://art/pics/evil_robot.png")
 var dig_sprite =  preload("res://scene/laser/sprite/laser_use4.png")
 
 func _physics_process(delta: float) -> void:
@@ -35,7 +35,6 @@ func _physics_process(delta: float) -> void:
 		$Camera2D.zoom+= Vector2(0.1,0.1)
 		
 	if Input.is_action_just_pressed("zoom_out") and $Camera2D.zoom>= Vector2(1.6, 1.6):
-		print($Camera2D.zoom)
 		$Camera2D.zoom-= Vector2(0.1,0.1)
 	if Input.is_action_just_pressed("zoom_reset"):
 		$Camera2D.zoom = Vector2(1.75,1.75)
@@ -44,7 +43,7 @@ func _physics_process(delta: float) -> void:
 			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().get("name") == "Cave":
 				var colider = $Laser/Beam.get_collider_rid()
 				
-				cave.damage_tile(colider,Globals.digging_speed)
+				cave.damage_tile(colider,min(Globals.digging_speed,9))
 				%digging.pitch_scale= randf_range(0.8,1.2)
 				%digging.play()
 				dig_av= false
@@ -91,7 +90,7 @@ func set_mode(mode):
 		build_mode = false
 		fight_mode = true
 		dig_mode = false
-		$Tool.texture = null
+		$Tool.texture = fight_sprite
 	if mode == "3":
 		build_mode = true
 		fight_mode = false

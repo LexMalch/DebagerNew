@@ -17,8 +17,8 @@ func _physics_process(delta: float) -> void:
 		$Turret_tower.rotate(deg_to_rad(90))
 		
 	
-func take_damage(damage):
-	health -=damage
+func take_damage(turret_damage):
+	health -=turret_damage
 	$ProgressBar.show()
 	if health <=0:
 		Globals.busy_plase.erase(global_position)

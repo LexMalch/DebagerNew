@@ -8,6 +8,7 @@ var digging_speed = 1
 var stage = 0
 var enemy_quantity = 1
 
+
 func restart_game():
 	dollors = 0
 	reshetkas =  0

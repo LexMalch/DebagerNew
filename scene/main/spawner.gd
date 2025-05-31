@@ -1,5 +1,6 @@
 extends Marker2D
 var dir = 8
+var cur_wave = 0
 
 var Enemy = preload("res://scene/enemy/enemy_spider/enemy_spider.tscn")
 func _physics_process(delta: float) -> void:
@@ -17,3 +18,9 @@ func _on_spawn_timer_timeout() -> void:
 		var enemy = Enemy.instantiate()
 		enemy.global_position = global_position
 		get_parent().get_parent().add_child(enemy)
+		cur_wave+=1
+		print(cur_wave)
+		if cur_wave==5:
+			cur_wave=0
+			Globals.enemy_quantity+= round(sqrt(Globals.enemy_quantity))
+			%EnemyWarning.start_typing()

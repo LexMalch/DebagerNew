@@ -51,7 +51,7 @@ func change_state(new_state:State):
 		$Sprites/Spider_legs.play()
 	
 	state = new_state
-	print(str(state))
+	
 
 
 
