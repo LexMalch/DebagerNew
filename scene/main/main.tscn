@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://b6nyv11ur5obw"]
+[gd_scene load_steps=46 format=4 uid="uid://b6nyv11ur5obw"]
 
 [ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="1_si3g0"]
 [ext_resource type="Texture2D" uid="uid://b8g0t3osot2f" path="res://art/pics/tileset.png" id="2_siuy0"]
@@ -333,15 +333,6 @@ alpha_curve = SubResource("CurveTexture_y2sod")
 [sub_resource type="Theme" id="Theme_q2oic"]
 Button/styles/focus = SubResource("StyleBoxEmpty_b5xoo")
 
-[sub_resource type="Gradient" id="Gradient_tyv27"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_676lm"]
-gradient = SubResource("Gradient_tyv27")
-fill = 1
-fill_from = Vector2(0.529915, 0.487179)
-fill_to = Vector2(1, 0.00854701)
-
 [node name="Main" type="Node2D"]
 
 [node name="Gliching" type="Node2D" parent="."]
@@ -522,7 +513,7 @@ texture = ExtResource("8_onf7c")
 
 [node name="Player" parent="." instance=ExtResource("4_b8g54")]
 unique_name_in_owner = true
-z_index = 6
+z_index = 5
 position = Vector2(256, 80)
 
 [node name="digging" type="AudioStreamPlayer2D" parent="Player"]
@@ -602,10 +593,6 @@ bulet
 amount
 x2"
 script = ExtResource("15_mm1ql")
-
-[node name="PointLight2D" type="PointLight2D" parent="Cave/Button"]
-position = Vector2(12, 14)
-texture = SubResource("GradientTexture2D_676lm")
 
 [node name="BuildingSystem" parent="." instance=ExtResource("13_n5o2v")]
 unique_name_in_owner = true

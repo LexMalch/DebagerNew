@@ -2,7 +2,7 @@ extends Node2D
 #@export var walls = preload()
 @export var turret = preload("res://scene/turret/turret.tscn")
 @export var feeler = preload("res://scene/feeler/feeler.tscn")
-
+@export var tower = preload("res://scene/tower/tower.tscn")
 var builds = []
 var curr_build
 var pointer: = 0
@@ -12,7 +12,7 @@ var building_mode = false
 var building_avalible = false
 var curr_sprite
 func _ready() -> void:
-	builds = [turret,feeler]
+	builds = [turret,feeler,tower]
 	curr_build = builds[pointer]
 	
 func _physics_process(delta: float) -> void:
@@ -20,6 +20,8 @@ func _physics_process(delta: float) -> void:
 	if %Player.build_mode == true:
 		get_pos()
 		$Sprite2D.position= curr_pos
+		if curr_build == tower:
+			$Sprite2D.position= curr_pos + Vector2(0,-16-8)
 		$Polygon2D.position= curr_pos
 		$Label.position= curr_pos+Vector2(-5,-10)
 		check_building_status()
@@ -91,7 +93,10 @@ func bild():
 	if %Player.build_mode == true and building_avalible == true and curr_build_scene.price <= Globals.dollors:
 		Globals.dollors -=curr_build_scene.price
 		curr_build_scene = curr_build.instantiate()
-		curr_build_scene.global_position = curr_pos
+		if curr_build != tower:
+			curr_build_scene.global_position = curr_pos
+		else:
+			curr_build_scene.global_position = curr_pos+ Vector2(0,-16-8)
 		Globals.busy_plase.append(curr_build_scene.global_position)
 		add_child(curr_build_scene)
 	if curr_build_scene.price <= Globals.dollors:
