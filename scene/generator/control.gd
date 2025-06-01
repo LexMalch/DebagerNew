@@ -14,9 +14,10 @@ func _on_button_pressed() -> void:
 
 
 func _on_button_2_pressed() -> void:
-	if Globals.reshetkas>= total_price:
+	if Globals.reshetkas>= total_price and Globals.dollors>= total_price:
 		Globals.turret_damage+= round(sqrt(Globals.turret_damage))
 		Globals.reshetkas-=total_price
+		Globals.dollors -= total_price
 		total_price+= round(sqrt(total_price))		
 		$HBoxContainer/TurretDamage.hide()
 		await get_tree().create_timer(5).timeout
@@ -25,9 +26,10 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_button_3_pressed() -> void:
-	if Globals.reshetkas>= total_price:
+	if Globals.reshetkas>= total_price and Globals.dollors>= total_price:
 		Globals.ores+= round(sqrt(Globals.ores))
 		Globals.reshetkas-=total_price
+		Globals.dollors-=total_price
 		total_price+= round(sqrt(total_price))
 		update_price()		
 		$HBoxContainer/OreAmount.hide()

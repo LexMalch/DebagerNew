@@ -70,7 +70,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8a5jq")
 layout_mode = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/MarginContainer/PanelContainer/MarginContainer"]
-visible = false
 custom_minimum_size = Vector2(117.54, 24.85)
 layout_mode = 2
 size_flags_horizontal = 4

@@ -2,7 +2,7 @@ extends StaticBody2D
 var player_inside  = false	
 var zalupa_opend = false
 var building_sprite= preload("res://scene/feeler/sprite/feeler.png")
-var price = 10
+var price = 5
 var hp = 10
 @onready var cave: = $/root/Main/Cave
 

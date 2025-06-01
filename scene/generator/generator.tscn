@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://co47w4e4p801p" path="res://scene/generator/sprite/gen3.png" id="3_ca0l4"]
 [ext_resource type="Texture2D" uid="uid://cen581gjqigia" path="res://scene/generator/sprite/laser_ui.png" id="4_b5xoo"]
 [ext_resource type="Texture2D" uid="uid://dralw3ucnabm1" path="res://scene/generator/sprite/gen4.png" id="4_jccku"]
-[ext_resource type="Texture2D" uid="uid://dvspvgnthxuj4" path="res://scene/ui/sprite/dollar.png" id="4_kdblc"]
 [ext_resource type="Texture2D" uid="uid://bitg233xr7ute" path="res://scene/generator/sprite/gen5.png" id="5_b5xoo"]
+[ext_resource type="Texture2D" uid="uid://dkwi51rwkjeuo" path="res://scene/coins/sprite/resh.png" id="5_jccku"]
 [ext_resource type="Texture2D" uid="uid://b3cbu7wlom7l5" path="res://scene/generator/sprite/res_ui.png" id="5_plp2v"]
 [ext_resource type="Texture2D" uid="uid://dr057skx0m0i7" path="res://scene/generator/sprite/gen6.png" id="6_dufph"]
 [ext_resource type="Texture2D" uid="uid://dbk0voww8uqc0" path="res://scene/generator/sprite/turret_ui.png" id="6_ewm5t"]
@@ -35,10 +35,10 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.001
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b5xoo"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jccku"]
 
 [sub_resource type="Theme" id="Theme_ewm5t"]
-Button/styles/focus = SubResource("StyleBoxEmpty_b5xoo")
+Button/styles/focus = SubResource("StyleBoxEmpty_jccku")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plp2v"]
 bg_color = Color(0, 0, 0, 0.878431)
@@ -322,7 +322,7 @@ custom_minimum_size = Vector2(6, 5)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-texture = ExtResource("4_kdblc")
+texture = ExtResource("5_jccku")
 expand_mode = 1
 
 [node name="Price" type="Label" parent="Control/HBoxContainer/LaserDamage/Button/MarginContainer/HBoxContainer"]

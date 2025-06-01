@@ -41,9 +41,12 @@ func _on_sooting_timer_timeout() -> void:
 	get_closest_target()
 	if current_target:
 		$Turret_tower.play("shoot")
-		var bullet = Bullet_scene.instantiate()
-		bullet.direction = Vector2.from_angle(get_angle_to(current_target.global_position))
-		add_child(bullet)
+		for i in range(Globals.turrt_bullet):
+			if current_target:
+				var bullet = Bullet_scene.instantiate()
+				bullet.direction = Vector2.from_angle(get_angle_to(current_target.global_position))
+				add_child(bullet)
+				await get_tree().create_timer(0.1).timeout
 		
 	else:
 		$Turret_tower.pause()

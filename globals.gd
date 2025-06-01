@@ -7,6 +7,7 @@ var turret_damage= 1
 var digging_speed = 1
 var stage = 0
 var enemy_quantity = 1
+var turrt_bullet =1
 
 
 func restart_game():
@@ -18,3 +19,4 @@ func restart_game():
 	digging_speed = 1
 	stage = 0
 	enemy_quantity = 1
+	turrt_bullet =1
