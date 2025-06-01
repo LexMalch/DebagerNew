@@ -118,16 +118,19 @@ script = ExtResource("4_8a5jq")
 [node name="TypeTimer" type="Timer" parent="HBoxContainer/MarginContainer2/Label"]
 wait_time = 0.1
 
-[node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]
-layout_mode = 2
+[node name="Restart" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 736.0
+offset_top = 8.0
+offset_right = 805.0
+offset_bottom = 43.0
 size_flags_horizontal = 8
 size_flags_vertical = 8
-theme_override_constants/margin_left = 510
-theme_override_constants/margin_bottom = 2
 
-[node name="RestartButton" parent="HBoxContainer/MarginContainer3" instance=ExtResource("5_daosa")]
+[node name="RestartButton" parent="Restart" instance=ExtResource("5_daosa")]
 layout_mode = 2
-size_flags_vertical = 8
+size_flags_horizontal = 8
+size_flags_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_daosa")
 
 [connection signal="timeout" from="HBoxContainer/MarginContainer2/Label/TypeTimer" to="HBoxContainer/MarginContainer2/Label" method="_on_type_timer_timeout"]

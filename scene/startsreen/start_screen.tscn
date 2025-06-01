@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bycweigvc6ki2"]
+
+[ext_resource type="Texture2D" uid="uid://dcrcov3wbym4i" path="res://scene/startsreen/logo.png" id="1_oqu1e"]
+
+[node name="Start_screen" type="Node2D"]
+
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(320, 180)
+texture = ExtResource("1_oqu1e")
