@@ -1,19 +1,17 @@
 extends RigidBody2D
 var type
-@export var gold : Color
-@export var silver : Color
 func _ready() -> void:
 	if type == "$":
-		$Polygon2D.color = gold
+		$Sprite.play("bucks")
 	elif type == "#":
-		$Polygon2D.color = silver
+		$Sprite.play("resh")
 	#$AnimationPlayer.play("drop")
 	global_position+= Vector2(round(randf_range(-10,10)),round(randf_range(-10,10)))
 
 func explode():
 	$CollisionShape2D.set_deferred("disabled","true")
 	$GPUParticles2D.emitting = true
-	$Polygon2D.hide()
+	$Sprite.hide()
 	$Timer.start()
 		
 

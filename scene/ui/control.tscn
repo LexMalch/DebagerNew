@@ -1,17 +1,18 @@
 [gd_scene load_steps=9 format=3 uid="uid://cen4qa4twrnf8"]
 
-[ext_resource type="Texture2D" uid="uid://mjs5a7ibwmeq" path="res://scene/laser/sprite/laser_touch1.png" id="1_lobh0"]
 [ext_resource type="Script" uid="uid://c6ieu61ykp15k" path="res://scene/ui/control.gd" id="1_opgnf"]
-[ext_resource type="Texture2D" uid="uid://oy85gqnrft7a" path="res://scene/laser/sprite/laser_use1.png" id="2_opgnf"]
+[ext_resource type="Texture2D" uid="uid://dvspvgnthxuj4" path="res://scene/ui/sprite/dollar.png" id="2_daosa"]
+[ext_resource type="Texture2D" uid="uid://cfv7qtv15l2vq" path="res://scene/ui/sprite/reshet.png" id="3_5xta4"]
 [ext_resource type="Script" uid="uid://cokp72bhxahw6" path="res://scene/ui/label.gd" id="4_8a5jq"]
 [ext_resource type="PackedScene" uid="uid://llixd8875qlw" path="res://scene/ui/restart_button.tscn" id="5_daosa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a5jq"]
-bg_color = Color(0.6, 0.6, 0.6, 0.164706)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+bg_color = Color(0, 0, 0, 0.788235)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.903598, 0.903598, 0.903598, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -69,6 +70,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_8a5jq")
 layout_mode = 2
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/MarginContainer/PanelContainer/MarginContainer"]
+visible = false
 custom_minimum_size = Vector2(117.54, 24.85)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -85,18 +87,22 @@ size_flags_vertical = 4
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_lobh0")
+texture = ExtResource("2_daosa")
+expand_mode = 2
 
 [node name="dollors" type="Label" parent="HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "1"
 
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_opgnf")
+texture = ExtResource("3_5xta4")
+expand_mode = 2
 
 [node name="reshetkas" type="Label" parent="HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "2"
 
 [node name="MarginContainer2" type="MarginContainer" parent="HBoxContainer"]

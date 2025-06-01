@@ -1,20 +1,31 @@
 [gd_scene load_steps=32 format=3 uid="uid://b4prfxi5j7xur"]
 
-[ext_resource type="Texture2D" uid="uid://bfvs3us4xykxs" path="res://scene/generator/sprite/gen1.png" id="1_kdblc"]
+[ext_resource type="Texture2D" uid="uid://mxwo05ou7nlw" path="res://scene/generator/sprite/gen1.png" id="1_kdblc"]
 [ext_resource type="Script" uid="uid://c56ht8hmhwo0y" path="res://scene/generator/generator.gd" id="1_plp2v"]
-[ext_resource type="Texture2D" uid="uid://c26non8760ryi" path="res://scene/generator/sprite/gen2.png" id="2_plp2v"]
-[ext_resource type="Texture2D" uid="uid://bu2yffhf1feks" path="res://scene/generator/sprite/gen3.png" id="3_ca0l4"]
-[ext_resource type="Texture2D" uid="uid://cl8umensh8a6f" path="res://scene/generator/sprite/gen4.png" id="4_jccku"]
-[ext_resource type="Texture2D" uid="uid://cfm15tjvhmq4q" path="res://scene/generator/sprite/gen5.png" id="5_b5xoo"]
-[ext_resource type="Texture2D" uid="uid://biyutkm7lgobi" path="res://scene/generator/sprite/gen6.png" id="6_dufph"]
-[ext_resource type="Texture2D" uid="uid://b71f2fegsxnfn" path="res://scene/generator/sprite/gen7.png" id="7_ewm5t"]
-[ext_resource type="Texture2D" uid="uid://dcdnjvnwsf8go" path="res://scene/generator/sprite/gen8.png" id="8_ln4xp"]
-[ext_resource type="Texture2D" uid="uid://bgchsg2fuilnl" path="res://scene/generator/sprite/gen9.png" id="9_la0fv"]
-[ext_resource type="Texture2D" uid="uid://b2xvhtkecsn7h" path="res://scene/generator/sprite/gen10.png" id="10_vppxe"]
+[ext_resource type="Texture2D" uid="uid://bjtenyfw82c3w" path="res://scene/generator/sprite/gen2.png" id="2_plp2v"]
+[ext_resource type="Texture2D" uid="uid://co47w4e4p801p" path="res://scene/generator/sprite/gen3.png" id="3_ca0l4"]
+[ext_resource type="Texture2D" uid="uid://cen581gjqigia" path="res://scene/generator/sprite/laser_ui.png" id="4_b5xoo"]
+[ext_resource type="Texture2D" uid="uid://dralw3ucnabm1" path="res://scene/generator/sprite/gen4.png" id="4_jccku"]
+[ext_resource type="Texture2D" uid="uid://dvspvgnthxuj4" path="res://scene/ui/sprite/dollar.png" id="4_kdblc"]
+[ext_resource type="Texture2D" uid="uid://bitg233xr7ute" path="res://scene/generator/sprite/gen5.png" id="5_b5xoo"]
+[ext_resource type="Texture2D" uid="uid://b3cbu7wlom7l5" path="res://scene/generator/sprite/res_ui.png" id="5_plp2v"]
+[ext_resource type="Texture2D" uid="uid://dr057skx0m0i7" path="res://scene/generator/sprite/gen6.png" id="6_dufph"]
+[ext_resource type="Texture2D" uid="uid://dbk0voww8uqc0" path="res://scene/generator/sprite/turret_ui.png" id="6_ewm5t"]
 [ext_resource type="Script" uid="uid://bndcn7nq6x3q5" path="res://scene/generator/control.gd" id="12_ca0l4"]
 [ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="13_jccku"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_plp2v"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8nle"]
+bg_color = Color(0, 0, 0, 0.878431)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b5xoo"]
 shader = ExtResource("13_jccku")
@@ -29,7 +40,18 @@ shader_parameter/shake_color_rate = 0.001
 [sub_resource type="Theme" id="Theme_ewm5t"]
 Button/styles/focus = SubResource("StyleBoxEmpty_b5xoo")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ca0l4"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plp2v"]
+bg_color = Color(0, 0, 0, 0.878431)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.99558, 0.99558, 0.99558, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dufph"]
 shader = ExtResource("13_jccku")
@@ -39,7 +61,18 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.001
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jccku"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ca0l4"]
+bg_color = Color(0, 0, 0, 0.878431)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ewm5t"]
 shader = ExtResource("13_jccku")
@@ -71,22 +104,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_dufph")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_ewm5t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_ln4xp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_la0fv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_vppxe")
 }],
 "loop": false,
 "name": &"buid_up",
-"speed": 20.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -98,12 +119,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdblc"]
-size = Vector2(32, 32)
+size = Vector2(64, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_opvtb"]
-radius = 17.7573
+radius = 19.5954
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plp2v"]
+size = Vector2(28.4522, 28.8316)
 
 [sub_resource type="Animation" id="Animation_dufph"]
 resource_name = "card_pull_1"
@@ -214,7 +236,6 @@ _data = {
 }
 
 [node name="Generator" type="StaticBody2D" groups=["ally"]]
-scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_plp2v")
@@ -223,10 +244,11 @@ script = ExtResource("1_plp2v")
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
-offset_left = -12.0
-offset_top = -60.0
-offset_right = 40.0
-offset_bottom = -11.0
+offset_left = -25.0
+offset_top = -119.0
+offset_right = 27.0
+offset_bottom = -70.0
+scale = Vector2(2, 2)
 script = ExtResource("12_ca0l4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
@@ -240,7 +262,7 @@ anchor_bottom = 0.5
 offset_left = -59.0
 offset_top = -15.5
 offset_right = 33.0
-offset_bottom = 16.5
+offset_bottom = 24.5
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(45.11, 15.5)
@@ -249,7 +271,7 @@ alignment = 1
 
 [node name="LaserDamage" type="PanelContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_plp2v")
+theme_override_styles/panel = SubResource("StyleBoxFlat_c8nle")
 
 [node name="Glich" type="ColorRect" parent="Control/HBoxContainer/LaserDamage"]
 z_index = 1000
@@ -263,6 +285,21 @@ theme_override_font_sizes/font_size = 4
 text = "Laser
 Damage
 x2"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/HBoxContainer/LaserDamage/Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/LaserDamage/Button/MarginContainer2"]
+custom_minimum_size = Vector2(10, 7)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("4_b5xoo")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer/LaserDamage/Button"]
 layout_mode = 1
@@ -280,11 +317,13 @@ theme_override_constants/margin_bottom = 2
 layout_mode = 2
 theme_override_constants/separation = 1
 
-[node name="Icon" type="Label" parent="Control/HBoxContainer/LaserDamage/Button/MarginContainer/HBoxContainer"]
+[node name="Icon" type="TextureRect" parent="Control/HBoxContainer/LaserDamage/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(6, 5)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 3
-text = "$:"
+texture = ExtResource("4_kdblc")
+expand_mode = 1
 
 [node name="Price" type="Label" parent="Control/HBoxContainer/LaserDamage/Button/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -294,7 +333,7 @@ text = "1"
 
 [node name="TurretDamage" type="PanelContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_ca0l4")
+theme_override_styles/panel = SubResource("StyleBoxFlat_plp2v")
 
 [node name="Glich" type="ColorRect" parent="Control/HBoxContainer/TurretDamage"]
 z_index = 1000
@@ -308,6 +347,21 @@ theme_override_font_sizes/font_size = 4
 text = "Turret
 Damage
 x2"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/HBoxContainer/TurretDamage/Button2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/TurretDamage/Button2/MarginContainer2"]
+custom_minimum_size = Vector2(10, 7)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("6_ewm5t")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer/TurretDamage/Button2"]
 layout_mode = 1
@@ -325,11 +379,13 @@ theme_override_constants/margin_bottom = 2
 layout_mode = 2
 theme_override_constants/separation = 1
 
-[node name="Icon" type="Label" parent="Control/HBoxContainer/TurretDamage/Button2/MarginContainer/HBoxContainer"]
+[node name="Icon" type="TextureRect" parent="Control/HBoxContainer/TurretDamage/Button2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(6, 5)
 layout_mode = 2
+size_flags_horizontal = 0
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 3
-text = "$:"
+texture = ExtResource("5_plp2v")
+expand_mode = 1
 
 [node name="Price" type="Label" parent="Control/HBoxContainer/TurretDamage/Button2/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -339,7 +395,7 @@ text = "1"
 
 [node name="OreAmount" type="PanelContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_jccku")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ca0l4")
 
 [node name="Glich" type="ColorRect" parent="Control/HBoxContainer/OreAmount"]
 z_index = 1000
@@ -350,11 +406,28 @@ layout_mode = 2
 layout_mode = 2
 theme = SubResource("Theme_ewm5t")
 theme_override_font_sizes/font_size = 4
-text = "Amount
+text = "
+Amount
 Of 
 Ore
 x2
 "
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/HBoxContainer/OreAmount/Button3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer/OreAmount/Button3/MarginContainer2"]
+custom_minimum_size = Vector2(10, 7)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+texture = ExtResource("5_plp2v")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/HBoxContainer/OreAmount/Button3"]
 layout_mode = 1
@@ -372,11 +445,12 @@ theme_override_constants/margin_bottom = 2
 layout_mode = 2
 theme_override_constants/separation = 1
 
-[node name="Icon" type="Label" parent="Control/HBoxContainer/OreAmount/Button3/MarginContainer/HBoxContainer"]
+[node name="Icon" type="TextureRect" parent="Control/HBoxContainer/OreAmount/Button3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(6, 5)
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 3
-text = "$:"
+texture = ExtResource("5_plp2v")
+expand_mode = 1
 
 [node name="Price" type="Label" parent="Control/HBoxContainer/OreAmount/Button3/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -387,13 +461,15 @@ text = "1"
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 material = SubResource("ShaderMaterial_jccku")
 sprite_frames = SubResource("SpriteFrames_yybav")
-animation = &"buid_up"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Build_collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_kdblc")
 
 [node name="generator_area" type="Area2D" parent="."]
+position = Vector2(0, 9)
 collision_mask = 9
 gravity_space_override = 1
 gravity_point = true
@@ -413,7 +489,7 @@ collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buildup_area"]
-position = Vector2(0, 8)
+position = Vector2(-0.5, 16)
 scale = Vector2(2.636, 2.636)
 shape = SubResource("RectangleShape2D_plp2v")
 

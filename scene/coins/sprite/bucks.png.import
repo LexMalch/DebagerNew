@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcdnjvnwsf8go"
-path="res://.godot/imported/gen8.png-568bd0eba219b0bad033c6a90a24e727.ctex"
+uid="uid://cqd4g51mgeudi"
+path="res://.godot/imported/bucks.png-45d95efe547ee32d2b6d53419101941e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/generator/sprite/gen8.png"
-dest_files=["res://.godot/imported/gen8.png-568bd0eba219b0bad033c6a90a24e727.ctex"]
+source_file="res://scene/coins/sprite/bucks.png"
+dest_files=["res://.godot/imported/bucks.png-45d95efe547ee32d2b6d53419101941e.ctex"]
 
 [params]
 
