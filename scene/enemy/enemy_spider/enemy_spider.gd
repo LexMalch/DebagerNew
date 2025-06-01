@@ -1,7 +1,8 @@
 extends CharacterBody2D
-const  max_speed = 50
+var max_speed = 50
 var max_health = 10
 var damage = 2
+var col = Color(1,1,1,1)
 
 enum State {
 	MOVING_DOWN,
@@ -17,7 +18,8 @@ var direction = Vector2.DOWN
 var attack_target
 var kd= false
 
-	
+func _ready() -> void:
+	modulate = col
 
 func _physics_process(delta: float) -> void:
 	velocity = direction * max_speed

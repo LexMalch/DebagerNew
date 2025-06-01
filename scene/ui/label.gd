@@ -11,7 +11,11 @@ func _ready():
 
 func start_typing():
 	show()
-	full_text = "Stage: "+str(Globals.stage)
+	if Globals.stage !=4:
+		full_text = "Stage: "+str(Globals.stage)
+	else:
+		full_text = "FINAL STAGE"
+		modulate = Color.CRIMSON
 	text = ""  # Очищаем текст
 	current_char = 0
 	$TypeTimer.start()

@@ -5,3 +5,7 @@ func _physics_process(delta: float) -> void:
 		position.y-=32*6
 		Globals.stage+=1
 		emit_signal("type")
+		if Globals.stage==4:
+			hide()
+			$Spawner/SpawnTimer.stop()
+			$Spawner.spawn_boss()

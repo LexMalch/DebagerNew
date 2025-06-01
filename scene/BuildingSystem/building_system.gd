@@ -21,10 +21,12 @@ func _physics_process(delta: float) -> void:
 		get_pos()
 		$Sprite2D.position= curr_pos
 		$Polygon2D.position= curr_pos
+		$Label.position= curr_pos+Vector2(-5,-10)
 		check_building_status()
 	if %Player.build_mode == false:
 		$Sprite2D.visible = false
 		$Polygon2D.visible = false
+		$Label.visible = false
 
 func _input(event):
 	if event.is_action_pressed("build_mode"):
@@ -32,11 +34,18 @@ func _input(event):
 			curr_build = builds[pointer]
 			curr_build_scene = curr_build.instantiate()
 			curr_sprite = curr_build_scene.building_sprite
+			$Label.text= str(curr_build_scene.price)
+			if curr_build_scene.price <= Globals.dollors:
+				$Label.modulate = Color(1,1,1,1)
+			else:
+				$Label.modulate = Color.BROWN
 			$Sprite2D.texture = curr_sprite
 			$Sprite2D.show()
+			$Label.show()
 			%Player.set_mode("3")
 		elif %Player.build_mode == true:
 			$Polygon2D.hide()
+			$Label.hide()
 			$Sprite2D.hide()
 			%Player.set_mode("0")
 	if event.is_action_pressed("switch"):
@@ -48,6 +57,11 @@ func _input(event):
 		curr_build_scene = curr_build.instantiate()
 		curr_sprite = curr_build_scene.building_sprite
 		$Sprite2D.texture = curr_sprite
+		$Label.text= str(curr_build_scene.price)
+		if curr_build_scene.price <= Globals.dollors:
+			$Label.modulate = Color(1,1,1,1)
+		else:
+			$Label.modulate = Color.BROWN
 	if event.is_action_pressed("lmb"):
 		bild()
 func get_pos():
@@ -80,6 +94,9 @@ func bild():
 		curr_build_scene.global_position = curr_pos
 		Globals.busy_plase.append(curr_build_scene.global_position)
 		add_child(curr_build_scene)
-		
+	if curr_build_scene.price <= Globals.dollors:
+		$Label.modulate = Color(1,1,1,1)
+	else:
+		$Label.modulate = Color.BROWN
 
 	

@@ -2,7 +2,11 @@ extends Marker2D
 var dir = 8
 var cur_wave = 0
 
+
 var Enemy = preload("res://scene/enemy/enemy_spider/enemy_spider.tscn")
+
+
+
 func _physics_process(delta: float) -> void:
 	position.x += dir 
 
@@ -24,3 +28,25 @@ func _on_spawn_timer_timeout() -> void:
 		var enemy = Enemy.instantiate()
 		enemy.global_position = global_position
 		get_parent().get_parent().add_child(enemy)
+func spawn_boss():
+		var boss = Enemy.instantiate()
+		boss.global_position = Vector2(300,-900)
+		boss.scale.x = 5
+		boss.scale.y = 5
+		boss.col = Color(25,0.5,1,1)
+		boss.max_speed = 200
+		boss.max_health = 500
+		boss.damage = 5
+		get_parent().get_parent().add_child(boss)
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
