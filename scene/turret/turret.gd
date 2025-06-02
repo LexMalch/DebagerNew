@@ -50,6 +50,7 @@ func _on_sooting_timer_timeout() -> void:
 		$Turret_tower.play("shoot")
 		for i in range(Globals.turrt_bullet):
 			if current_target:
+				$AudioStreamPlayer2D2.play()
 				var bullet = Bullet_scene.instantiate()
 				bullet.direction = Vector2.from_angle(get_angle_to(current_target.global_position))
 				add_child(bullet)

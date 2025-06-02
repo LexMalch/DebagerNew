@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dnc58tnt2s82t"]
+[gd_scene load_steps=14 format=3 uid="uid://dnc58tnt2s82t"]
 
 [ext_resource type="Script" uid="uid://dkt25th7gk35s" path="res://scene/turret/turret.gd" id="1_n7iuj"]
 [ext_resource type="Texture2D" uid="uid://dmatlb5kv0sni" path="res://scene/turret/sprite/turret.png" id="1_yfb4x"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dkjs0oxb74i4r" path="res://scene/turret/sprite/turret3.png" id="4_kdvut"]
 [ext_resource type="Texture2D" uid="uid://dl02btu3oawxm" path="res://scene/turret/sprite/turret4.png" id="5_gvkw7"]
 [ext_resource type="Texture2D" uid="uid://ct342wpv2qtht" path="res://scene/turret/sprite/turret5.png" id="6_2wpkg"]
+[ext_resource type="AudioStream" uid="uid://c0bjpfpun1eja" path="res://sounds/turret_shoot.wav" id="8_cln5p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fgfb3"]
 radius = 16.0
@@ -99,7 +100,9 @@ autostart = true
 wait_time = 5.0
 autostart = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_cln5p")
+volume_db = -10.0
 
 [connection signal="body_entered" from="DetactionArea" to="." method="_on_detaction_area_body_entered"]
 [connection signal="body_exited" from="DetactionArea" to="." method="_on_detaction_area_body_exited"]

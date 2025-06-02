@@ -118,7 +118,7 @@ func get_damage(damage_amount):
 	$ProgressBar.show()
 	health -= damage_amount
 	health = clamp(health, 0, max_health)
-
+	$AudioStreamPlayer2D.play()
 	if health <= 0:
 		if is_boss == true:
 			Engine.time_scale = 0

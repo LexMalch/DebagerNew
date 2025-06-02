@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bcdvhgcf6nsvj"]
+[gd_scene load_steps=23 format=3 uid="uid://bcdvhgcf6nsvj"]
 
 [ext_resource type="Script" uid="uid://bhocjx5tn612o" path="res://scene/enemy/enemy_spider/enemy_spider.gd" id="1_4af2y"]
 [ext_resource type="Texture2D" uid="uid://d3bytl3aiwopp" path="res://scene/enemy/enemy_spider/enemy_body1.png" id="2_4af2y"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ehlotgisnnx6" path="res://scene/enemy/enemy_spider/enemy_run7.png" id="9_3g7yy"]
 [ext_resource type="Texture2D" uid="uid://hpssoth73l8p" path="res://scene/enemy/enemy_spider/enemy_run8.png" id="10_vmfj0"]
 [ext_resource type="Texture2D" uid="uid://bio2qej06ruby" path="res://scene/enemy/enemy_spider/enemy_byte.png" id="11_n75ol"]
+[ext_resource type="AudioStream" uid="uid://c680ivdvg3r35" path="res://sounds/playerhit.wav" id="12_w86bc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_84obg"]
 animations = [{
@@ -178,6 +179,10 @@ show_percentage = false
 
 [node name="Kd_Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_w86bc")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Spider_head" to="." method="_on_spider_head_body_entered"]
 [connection signal="body_exited" from="Spider_head" to="." method="_on_spider_head_body_exited"]

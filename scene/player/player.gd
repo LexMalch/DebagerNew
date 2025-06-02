@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		$Camera2D.zoom = Vector2(1.0,1.0)
 	if Input.is_action_pressed("lmb"):
 		if dig_mode ==true and dig_av== true:
-			$Laser/AudioStreamPlayer.volume_db = 0
+			$Laser/AudioStreamPlayer.volume_db = -10
 			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().get("name") == "Cave":
 				var colider = $Laser/Beam.get_collider_rid()
 				
@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 				dig_av= false
 				$dig_timer.start()
 		if fight_mode== true:
-			$Laser/AudioStreamPlayer.volume_db = 0
+			$Laser/AudioStreamPlayer.volume_db = -10
 			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().is_in_group("enemys") and $Laser/Beam.get_collider().kd!= true:
 				
 				var colider = $Laser/Beam.get_collider()
