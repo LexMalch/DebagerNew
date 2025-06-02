@@ -34,10 +34,10 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("zoom_in"):
 		$Camera2D.zoom+= Vector2(0.1,0.1)
 		
-	if Input.is_action_just_pressed("zoom_out") and $Camera2D.zoom>= Vector2(1.6, 1.6):
+	if Input.is_action_just_pressed("zoom_out") and $Camera2D.zoom>= Vector2(1.0, 1.0):
 		$Camera2D.zoom-= Vector2(0.1,0.1)
 	if Input.is_action_just_pressed("zoom_reset"):
-		$Camera2D.zoom = Vector2(1.75,1.75)
+		$Camera2D.zoom = Vector2(1.0,1.0)
 	if Input.is_action_pressed("lmb"):
 		if dig_mode ==true and dig_av== true:	
 			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().get("name") == "Cave":
@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().is_in_group("enemys") and $Laser/Beam.get_collider().kd!= true:
 				
 				var colider = $Laser/Beam.get_collider()
-				colider.get_damage(Globals.digging_speed*2)
+				colider.get_damage(Globals.digging_speed)
 				colider.kd = true
 				colider.kd_start()
 			else: return

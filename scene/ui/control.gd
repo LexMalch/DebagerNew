@@ -4,3 +4,7 @@ func _physics_process(delta: float) -> void:
 	$HBoxContainer/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/reshetkas.text = str(Globals.reshetkas)
 	$HBoxContainer/MarginContainer/PanelContainer/MarginContainer/ProgressBar.max_value = $"../../../Wall/Spawner/SpawnTimer".wait_time
 	$HBoxContainer/MarginContainer/PanelContainer/MarginContainer/ProgressBar.value = $"../../../Wall/Spawner/SpawnTimer".time_left
+
+
+func _on_button_pressed():
+	pass # Replace with function body.

@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Debuger"
-run/main_scene="uid://b6nyv11ur5obw"
+run/main_scene="uid://bycweigvc6ki2"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+boot_splash/bg_color=Color(0.217663, 0.21361, 0.429487, 0.8)
+boot_splash/fullsize=false
+boot_splash/image="uid://ohnuesme2d5k"
 config/icon="uid://dsugqpjr2mumg"
+boot_splash/minimum_display_time=30
 
 [autoload]
 
@@ -31,8 +35,7 @@ window/size/initial_position_type=0
 window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=720
-window/stretch/aspect="ignore"
-window/stretch/scale_mode="integer"
+window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
 [global_group]
@@ -122,6 +125,7 @@ fight_mode={
 2d_physics/layer_2="Map"
 2d_physics/layer_3="Cave"
 2d_physics/layer_4="Coins"
+2d_physics/layer_5="enemy"
 
 [physics]
 
