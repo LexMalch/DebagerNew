@@ -165,7 +165,7 @@ scale_curve = SubResource("CurveTexture_egxbn")
 color_ramp = SubResource("GradientTexture1D_04bvi")
 
 [sub_resource type="Gradient" id="Gradient_04bvi"]
-offsets = PackedFloat32Array(0.0206612, 0.22314, 0.677686)
+offsets = PackedFloat32Array(0.0206612, 0.292079, 0.677686)
 colors = PackedColorArray(1, 1, 1, 1, 0.133196, 0.133196, 0.133196, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nqjai"]

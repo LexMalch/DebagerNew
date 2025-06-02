@@ -18,7 +18,6 @@ func _on_timer_timeout() -> void:
 
 func _on_spawn_timer_timeout() -> void:
 	cur_wave+=1
-	print(cur_wave)
 	if cur_wave==5:
 		cur_wave=0
 		Globals.enemy_quantity+= round(sqrt(Globals.enemy_quantity))
@@ -28,6 +27,16 @@ func _on_spawn_timer_timeout() -> void:
 		var enemy = Enemy.instantiate()
 		enemy.global_position = global_position
 		get_parent().get_parent().add_child(enemy)
+	if Globals.stage >=2:
+		var enemy_fat = Enemy.instantiate()
+		enemy_fat.global_position = global_position+Vector2(0,20)
+		enemy_fat.scale.x = 2
+		enemy_fat.scale.y = 2
+		enemy_fat.col = Color.CRIMSON
+		enemy_fat.max_speed = 30
+		enemy_fat.max_health = 50
+		enemy_fat.damage = 1
+		get_parent().get_parent().add_child(enemy_fat)
 func spawn_boss():
 		var boss = Enemy.instantiate()
 		boss.global_position = Vector2(300,-900)
@@ -36,7 +45,7 @@ func spawn_boss():
 		boss.col = Color(25,0.5,1,1)
 		boss.max_speed = 200
 		boss.max_health = 500
-		boss.damage = 5
+		boss.damage = 10
 		get_parent().get_parent().add_child(boss)
 		
 		

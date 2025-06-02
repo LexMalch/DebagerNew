@@ -96,11 +96,11 @@ func bild():
 		if curr_build != tower:
 			curr_build_scene.global_position = curr_pos
 			Globals.busy_plase.append(curr_build_scene.global_position)
-			print(Globals.busy_plase)
+		
 		else:
 			curr_build_scene.global_position = curr_pos+ Vector2(0,-16-8)
 			Globals.busy_plase.append(curr_build_scene.global_position+ Vector2(0,-16-8+348))
-			print(Globals.busy_plase)
+		
 			
 		add_child(curr_build_scene)
 	if curr_build_scene.price <= Globals.dollors:

@@ -612,6 +612,7 @@ position = Vector2(417, 0)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("18_q2oic")
+volume_db = -3.0
 autoplay = true
 
 [connection signal="type" from="Wall" to="Player/CanvasLayer/Control/HBoxContainer/MarginContainer2/Label" method="_on_wall_type"]

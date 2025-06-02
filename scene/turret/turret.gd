@@ -1,6 +1,6 @@
 extends StaticBody2D
 var building_sprite= preload("res://scene/turret/sprite/turret.png")
-var price = 3
+var price = 2
 var damage = 1
 var max_health = 10
 var targets= []
