@@ -33,14 +33,14 @@ func _on_sooting_timer_timeout() -> void:
 		$Area2D.show()
 		for enemy in enemys:
 			if enemy:
-				enemy.get_damage(enemy.max_health/10)
+				enemy.get_damage(enemy.max_health/20)
 	else:
 		$Area2D.hide()
 
 
 func _on_healing_timer_timeout() -> void:
 	if health < max_health:
-		health+=1
+		health+=4
 	else:
 		$ProgressBar.hide()
 

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 var max_speed = 50
-var max_health = 10
+var  max_health: float  = 10
 var damage = 2
 var col = Color(1,1,1,1)
 
