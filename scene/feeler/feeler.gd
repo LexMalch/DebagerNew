@@ -3,8 +3,9 @@ var player_inside  = false
 var zalupa_opend = false
 var building_sprite= preload("res://scene/feeler/sprite/feeler.png")
 var sound = preload("res://scene/sound.tscn")
-var price = 0
+var price = 5
 var hp = 10
+var kd = false
 @onready var cave: = $/root/Main/Cave
 
 func _ready() -> void:
@@ -39,3 +40,8 @@ func take_damage(damage):
 		get_parent().add_child(sound_tsn)
 		queue_free()
 		
+func _on_kd_timer_timeout() -> void:
+	kd= false
+
+func  kd_start():
+	$Kd_Timer.start()

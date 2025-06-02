@@ -48,8 +48,8 @@ anti_aliasing = false
 [node name="Tower" type="StaticBody2D" groups=["ally"]]
 z_index = 6
 y_sort_enabled = true
-collision_layer = 2
-collision_mask = 18
+collision_layer = 35
+collision_mask = 51
 script = ExtResource("1_nrt1x")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -107,7 +107,11 @@ show_percentage = false
 wait_time = 5.0
 autostart = true
 
+[node name="Kd_Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="SootingTimer" to="." method="_on_sooting_timer_timeout"]
 [connection signal="timeout" from="HealingTimer" to="." method="_on_healing_timer_timeout"]
+[connection signal="timeout" from="Kd_Timer" to="." method="_on_kd_timer_timeout"]

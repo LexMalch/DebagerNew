@@ -1,10 +1,10 @@
 extends StaticBody2D
 var building_sprite= preload("res://scene/tower/tower.png")
-var price = 0
+var price = 7
 var enemys = []
 var sound = preload("res://scene/sound.tscn")
 var max_health = 30
-
+var kd=false
 @onready var health = max_health
 
 
@@ -58,3 +58,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("enemys"):
 		enemys.erase(body)
+func _on_kd_timer_timeout() -> void:
+	kd= false
+
+func  kd_start():
+	$Kd_Timer.start()

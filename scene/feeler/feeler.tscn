@@ -103,7 +103,7 @@ size = Vector2(16, 17)
 
 [node name="Feeler" type="StaticBody2D" groups=["ally", "feeler"]]
 collision_layer = 2
-collision_mask = 18
+collision_mask = 19
 script = ExtResource("1_p5h41")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -128,5 +128,9 @@ position = Vector2(0, 8)
 scale = Vector2(1.48, 1.48)
 shape = SubResource("RectangleShape2D_p5h41")
 
+[node name="Kd_Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="Feeler_area" to="." method="_on_feeler_area_body_entered"]
 [connection signal="body_exited" from="Feeler_area" to="." method="_on_feeler_area_body_exited"]
+[connection signal="timeout" from="Kd_Timer" to="." method="_on_kd_timer_timeout"]

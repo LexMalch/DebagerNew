@@ -6,7 +6,7 @@ var busy_plase = []
 var turret_damage= 1
 var digging_speed = 1
 var stage = 0
-var enemy_quantity = 10
+var enemy_quantity = 1
 var turrt_bullet =1
 
 

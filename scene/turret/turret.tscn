@@ -56,8 +56,7 @@ corner_radius_bottom_left = 1
 anti_aliasing = false
 
 [node name="Turret" type="StaticBody2D" groups=["ally"]]
-collision_layer = 2
-collision_mask = 0
+collision_layer = 34
 script = ExtResource("1_n7iuj")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -104,8 +103,12 @@ autostart = true
 stream = ExtResource("8_cln5p")
 volume_db = -10.0
 
+[node name="Kd_Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="DetactionArea" to="." method="_on_detaction_area_body_entered"]
 [connection signal="body_exited" from="DetactionArea" to="." method="_on_detaction_area_body_exited"]
 [connection signal="timeout" from="SootingTimer" to="." method="_on_sooting_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="HealingTimer" to="." method="_on_healing_timer_timeout"]
+[connection signal="timeout" from="Kd_Timer" to="." method="_on_kd_timer_timeout"]

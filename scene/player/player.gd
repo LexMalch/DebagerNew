@@ -42,12 +42,15 @@ func _physics_process(delta: float) -> void:
 			$Laser/AudioStreamPlayer.volume_db = -10
 			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().get("name") == "Cave":
 				var colider = $Laser/Beam.get_collider_rid()
-				
 				cave.damage_tile(colider,min(Globals.digging_speed,9))
 				%digging.pitch_scale= randf_range(0.8,1.2)
 				%digging.play()
 				dig_av= false
 				$dig_timer.start()
+			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().is_in_group("ally")and $Laser/Beam.get_collider().kd!= true:
+				$Laser/Beam.get_collider().take_damage(3)
+				$Laser/Beam.get_collider().kd = true
+				$Laser/Beam.get_collider().kd_start()
 		if fight_mode== true:
 			$Laser/AudioStreamPlayer.volume_db = -10
 			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().is_in_group("enemys") and $Laser/Beam.get_collider().kd!= true:

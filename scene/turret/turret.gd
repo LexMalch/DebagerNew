@@ -1,8 +1,8 @@
 extends StaticBody2D
 var building_sprite= preload("res://scene/turret/sprite/turret.png")
-var price = 0
+var price = 2
 var sound = preload("res://scene/sound.tscn")
-
+var kd = false
 var damage = 1
 var max_health = 10
 var targets= []
@@ -29,7 +29,7 @@ func take_damage(turret_damage):
 		sound_tsn.global_position =global_position
 		get_parent().add_child(sound_tsn)
 		queue_free()
-		queue_free()
+		
 
 
 func _on_detaction_area_body_entered(body: Node2D) -> void:
@@ -83,3 +83,8 @@ func _on_healing_timer_timeout() -> void:
 		health+=1
 	else:
 		$ProgressBar.hide()
+func _on_kd_timer_timeout() -> void:
+	kd= false
+
+func  kd_start():
+	$Kd_Timer.start()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b4prfxi5j7xur"]
+[gd_scene load_steps=34 format=3 uid="uid://b4prfxi5j7xur"]
 
 [ext_resource type="Texture2D" uid="uid://mxwo05ou7nlw" path="res://scene/generator/sprite/gen1.png" id="1_kdblc"]
 [ext_resource type="Script" uid="uid://c56ht8hmhwo0y" path="res://scene/generator/generator.gd" id="1_plp2v"]
@@ -235,9 +235,25 @@ _data = {
 &"shop_in": SubResource("Animation_jccku")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jccku"]
+bg_color = Color(0.286275, 0.0509804, 0.407843, 0.235294)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5xoo"]
+bg_color = Color(0.816454, 0.498, 0.50454, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.654056, 0.621038, 0.9866, 1)
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+anti_aliasing = false
+
 [node name="Generator" type="StaticBody2D" groups=["ally"]]
-collision_layer = 2
-collision_mask = 0
+collision_layer = 34
 script = ExtResource("1_plp2v")
 
 [node name="Control" type="Control" parent="."]
@@ -499,9 +515,30 @@ libraries = {
 &"": SubResource("AnimationLibrary_dufph")
 }
 
+[node name="Kd_Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
+z_index = 1
+offset_left = -32.0
+offset_top = 48.0
+offset_right = 32.0
+offset_bottom = 54.0
+theme_override_styles/background = SubResource("StyleBoxFlat_jccku")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b5xoo")
+value = 29.26
+show_percentage = false
+
+[node name="HealingTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="pressed" from="Control/HBoxContainer/LaserDamage/Button" to="Control" method="_on_button_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/TurretDamage/Button2" to="Control" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Control/HBoxContainer/OreAmount/Button3" to="Control" method="_on_button_3_pressed"]
 [connection signal="body_entered" from="generator_area" to="." method="_on_generator_area_body_entered"]
 [connection signal="body_exited" from="generator_area" to="." method="_on_generator_area_body_exited"]
 [connection signal="body_entered" from="Buildup_area" to="." method="_on_buildup_area_body_entered"]
+[connection signal="timeout" from="Kd_Timer" to="." method="_on_kd_timer_timeout"]
+[connection signal="timeout" from="HealingTimer" to="." method="_on_healing_timer_timeout"]

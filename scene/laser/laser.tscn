@@ -33,7 +33,7 @@ autoplay = "touch"
 
 [node name="Beam" type="RayCast2D" parent="."]
 target_position = Vector2(80, 0)
-collision_mask = 32
+collision_mask = 18
 hit_from_inside = true
 
 [node name="Beam_line" type="Line2D" parent="."]
