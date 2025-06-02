@@ -40,4 +40,3 @@ func take_damage(damage):
 
 		queue_free()	
 	
-

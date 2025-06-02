@@ -43,3 +43,5 @@ default_color = Color(0.16359, 0.895786, 1, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_f26co")
+volume_db = -80.0
+autoplay = true

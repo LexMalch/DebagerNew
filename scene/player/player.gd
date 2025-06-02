@@ -11,7 +11,6 @@ var fight_sprite =  preload("res://art/pics/evil_robot.png")
 var dig_sprite =  preload("res://scene/laser/sprite/laser_use4.png")
 
 func _physics_process(delta: float) -> void:
-	
 	var direction = movement_vector().normalized()
 	velocity = max_speed * direction * delta * max_speed
 	if velocity.x > 0:
@@ -39,7 +38,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("zoom_reset"):
 		$Camera2D.zoom = Vector2(1.0,1.0)
 	if Input.is_action_pressed("lmb"):
-		if dig_mode ==true and dig_av== true:	
+		if dig_mode ==true and dig_av== true:
+			$Laser/AudioStreamPlayer.volume_db = 0
 			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().get("name") == "Cave":
 				var colider = $Laser/Beam.get_collider_rid()
 				
@@ -49,6 +49,7 @@ func _physics_process(delta: float) -> void:
 				dig_av= false
 				$dig_timer.start()
 		if fight_mode== true:
+			$Laser/AudioStreamPlayer.volume_db = 0
 			if $Laser/Beam.get_collider() and $Laser/Beam.get_collider().is_in_group("enemys") and $Laser/Beam.get_collider().kd!= true:
 				
 				var colider = $Laser/Beam.get_collider()
@@ -56,6 +57,8 @@ func _physics_process(delta: float) -> void:
 				colider.kd = true
 				colider.kd_start()
 			else: return
+	else:
+		$Laser/AudioStreamPlayer.volume_db = -80
 	if Input.is_action_just_pressed("dig_mode"):
 		if dig_mode ==false:
 			set_mode("1")
@@ -105,3 +108,7 @@ func set_mode(mode):
 
 func _on_dig_timer_timeout() -> void:
 	dig_av= true
+
+
+func _on_audio_stream_player_finished():
+	$Laser/AudioStreamPlayer.play()
