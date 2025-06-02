@@ -2,7 +2,7 @@ extends StaticBody2D
 var building_sprite= preload("res://scene/tower/tower.png")
 var price = 0
 var enemys = []
-
+var sound = preload("res://scene/sound.tscn")
 var max_health = 30
 
 @onready var health = max_health
@@ -19,6 +19,11 @@ func take_damage(turret_damage):
 	$ProgressBar.show()
 	if health <=0:
 		Globals.busy_plase.erase(global_position)
+		var sound_tsn = sound.instantiate()
+		sound_tsn.stream= preload("res://sounds/build_destroy.wav")
+		sound_tsn.global_position =global_position
+		get_parent().add_child(sound_tsn)
+		queue_free()
 		queue_free()
 
 

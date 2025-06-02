@@ -99,6 +99,8 @@ autostart = true
 wait_time = 5.0
 autostart = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="DetactionArea" to="." method="_on_detaction_area_body_entered"]
 [connection signal="body_exited" from="DetactionArea" to="." method="_on_detaction_area_body_exited"]
 [connection signal="timeout" from="SootingTimer" to="." method="_on_sooting_timer_timeout"]
