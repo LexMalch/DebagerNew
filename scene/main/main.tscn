@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://b6nyv11ur5obw"]
+[gd_scene load_steps=48 format=4 uid="uid://b6nyv11ur5obw"]
 
 [ext_resource type="Shader" uid="uid://cgdvld361dd5t" path="res://scene/main/glitch.gdshader" id="1_si3g0"]
 [ext_resource type="Texture2D" uid="uid://b8g0t3osot2f" path="res://art/pics/tileset.png" id="2_siuy0"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cywlduvi614dl" path="res://scene/BuildingSystem/building_system.tscn" id="13_n5o2v"]
 [ext_resource type="Script" uid="uid://xj8378p5nlyk" path="res://scene/main/button.gd" id="15_mm1ql"]
 [ext_resource type="AudioStream" uid="uid://p7vwd17vc81a" path="res://sounds/sci-fi-ambient-music-183269.mp3" id="18_q2oic"]
+[ext_resource type="PackedScene" uid="uid://c5p4a1q1r54r5" path="res://scene/sound.tscn" id="19_tyv27"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pidc3"]
 shader = ExtResource("1_si3g0")
@@ -614,6 +615,9 @@ position = Vector2(417, 0)
 stream = ExtResource("18_q2oic")
 volume_db = -3.0
 autoplay = true
+
+[node name="destroy_build" parent="." instance=ExtResource("19_tyv27")]
+unique_name_in_owner = true
 
 [connection signal="type" from="Wall" to="Player/CanvasLayer/Control/HBoxContainer/MarginContainer2/Label" method="_on_wall_type"]
 [connection signal="timeout" from="Wall/Spawner/DirTimer" to="Wall/Spawner" method="_on_timer_timeout"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5p4a1q1r54r5"]
+
+[ext_resource type="Script" uid="uid://cfr78u1mgox2u" path="res://scene/sound.gd" id="2_cx2xf"]
+
+[node name="destroy_build" type="AudioStreamPlayer2D"]
+volume_db = -20.0
+script = ExtResource("2_cx2xf")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
