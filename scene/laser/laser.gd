@@ -11,7 +11,7 @@ func _physics_process(delta):
 		$Touch_animation.global_position = $Beam.get_collision_point()
 		$Beam_line.set_point_position(1,$Beam_line.to_local($Touch_animation.global_position))
 	else:
-		
+
 		$Touch_animation.rotation = (get_angle_to(get_global_mouse_position()))
 		$Touch_animation.position = $Beam.target_position
 		$Beam_line.points[1] = $Touch_animation.position
