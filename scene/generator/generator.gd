@@ -33,4 +33,6 @@ func take_damage(damage):
 	
 	if hp <=0:
 		Globals.busy_plase.erase(global_position)
-		queue_free()	
+		Engine.time_scale = 0
+		$"../Player/CanvasLayer/Control/Lose_srceen".visible = true
+		

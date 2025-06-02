@@ -41,6 +41,7 @@ func spawn_boss():
 		var boss = Enemy.instantiate()
 		boss.global_position = Vector2(300,-900)
 		boss.scale.x = 5
+		boss.is_boss = true
 		boss.scale.y = 5
 		boss.col = Color(25,0.5,1,1)
 		boss.max_speed = 200

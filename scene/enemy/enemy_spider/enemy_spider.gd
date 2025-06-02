@@ -3,7 +3,7 @@ var max_speed = 50
 var  max_health: float  = 10
 var damage = 2
 var col = Color(1,1,1,1)
-
+var is_boss = false
 enum State {
 	MOVING_DOWN,
 	MOVING_TO_TARGET,
@@ -120,6 +120,9 @@ func get_damage(damage_amount):
 	health = clamp(health, 0, max_health)
 
 	if health <= 0:
+		if is_boss == true:
+			Engine.time_scale = 0
+			$"../Player/CanvasLayer/Control/Win_srceen".visible = true
 		queue_free()
 
 
