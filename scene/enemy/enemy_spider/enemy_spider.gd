@@ -20,7 +20,9 @@ var kd= false
 
 func _ready() -> void:
 	modulate = col
-
+	$AudioStreamPlayer2D2.play()
+	await get_tree().create_timer(1).timeout
+	$AudioStreamPlayer2D2.queue_free()
 func _physics_process(delta: float) -> void:
 	velocity = direction * max_speed
 	$ProgressBar.max_value = max_health
